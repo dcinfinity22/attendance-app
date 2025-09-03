@@ -1,0 +1,15 @@
+# ninja log v5
+8	112	0	D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86_64/CMakeFiles/cmake.verify_globs	6699f31140eb1443
+39	12791	7785778889245720	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/674b456ca2cb43d6ec02d2b9229bf63d/codegen/jni/react/renderer/components/safeareacontext/States.cpp.o	f8f26cf3434122a3
+24	15936	7785778921712696	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/a27322b7c0a7ebd55c17c529f9fcc689/jni/react/renderer/components/safeareacontext/EventEmitters.cpp.o	34de12f53a0ff756
+9	22291	7785778984618077	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/e9e7d32ca74e392e565781556c0d9da2/react/renderer/components/safeareacontext/RNCSafeAreaViewState.cpp.o	d93a5d6dddf8f6c5
+17	23668	7785778997876930	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/674b456ca2cb43d6ec02d2b9229bf63d/codegen/jni/react/renderer/components/safeareacontext/Props.cpp.o	15358e896b0e02e4
+32	27460	7785779036506385	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/ad3cc942f3a3d14041098f9475fd8f8b/react/renderer/components/safeareacontext/ComponentDescriptors.cpp.o	ba06ae3b9b2fd832
+2	27794	7785779039927771	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/15b5dc2bfac6c4a1c260759f38b390d9/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp.o	fcdb1272f61cdfa8
+15937	34512	7785779107910607	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/a6527e508e1226ba128ad30d0705ca21/components/safeareacontext/safeareacontextJSI-generated.cpp.o	15875c2fa95c3506
+12804	35563	7785779117798554	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/a27322b7c0a7ebd55c17c529f9fcc689/jni/react/renderer/components/safeareacontext/ShadowNodes.cpp.o	25c80ca7db2b38d
+23670	41047	7785779172886621	CMakeFiles/appmodules.dir/OnLoad.cpp.o	cf37512ab120388b
+27462	41416	7785779177065843	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/f0e8f001530f2930468c0c927eb1bb34/build/generated/source/codegen/jni/safeareacontext-generated.cpp.o	af711fade6a2208f
+41417	42117	7785779183686487	D:/xampp/htdocs/apps/crewcam/android/app/build/intermediates/cxx/Debug/5w32176f/obj/x86_64/libreact_codegen_safeareacontext.so	447289b2fda3cbce
+22293	45738	7785779219987779	CMakeFiles/appmodules.dir/D_/xampp/htdocs/apps/crewcam/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	57b0ca9e56a92ca5
+45740	46041	7785779223617452	D:/xampp/htdocs/apps/crewcam/android/app/build/intermediates/cxx/Debug/5w32176f/obj/x86_64/libappmodules.so	d369d3d1e4fd9b6c
