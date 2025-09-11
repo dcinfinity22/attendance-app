@@ -1,2 +1,4 @@
 D:\xampp\htdocs\apps\crewcam\node_modules\react-native-safe-area-context\android\src\main\jni\CMakeLists.txt
+D:\xampp\htdocs\apps\crewcam\node_modules\react-native-screens\android\src\main\jni\CMakeLists.txt
+D:\xampp\htdocs\apps\crewcam\node_modules\react-native-svg\android\src\main\jni\CMakeLists.txt
 D:\xampp\htdocs\apps\crewcam\node_modules\react-native\ReactAndroid\cmake-utils\default-app-setup\CMakeLists.txt

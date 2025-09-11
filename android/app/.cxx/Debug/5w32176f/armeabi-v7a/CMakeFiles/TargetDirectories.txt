@@ -4,3 +4,9 @@ D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/CMakeFi
 D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir
 D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/safeareacontext_autolinked_build/CMakeFiles/edit_cache.dir
 D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/safeareacontext_autolinked_build/CMakeFiles/rebuild_cache.dir
+D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/rnscreens_autolinked_build/CMakeFiles/react_codegen_rnscreens.dir
+D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/rnscreens_autolinked_build/CMakeFiles/edit_cache.dir
+D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/rnscreens_autolinked_build/CMakeFiles/rebuild_cache.dir
+D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir
+D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/rnsvg_autolinked_build/CMakeFiles/edit_cache.dir
+D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/armeabi-v7a/rnsvg_autolinked_build/CMakeFiles/rebuild_cache.dir

@@ -45,6 +45,8 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/safeareacontext_autolinked_build/cmake_install.cmake")
+  include("D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/rnscreens_autolinked_build/cmake_install.cmake")
+  include("D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/rnsvg_autolinked_build/cmake_install.cmake")
 
 endif()
 

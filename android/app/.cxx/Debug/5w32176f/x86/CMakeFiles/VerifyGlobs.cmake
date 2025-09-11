@@ -57,6 +57,98 @@ if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/CMakeFiles/cmake.verify_globs")
 endif()
 
+# LIB_CUSTOM_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:23 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/rnscreens.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:23 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSBottomTabsShadowNode.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSBottomTabsState.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSFullWindowOverlayShadowNode.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSModalScreenShadowNode.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenShadowNode.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderConfigShadowNode.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderConfigState.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderSubviewShadowNode.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderSubviewState.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenState.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSSplitViewScreenShadowNode.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:23 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/utils/*.cpp")
+set(OLD_GLOB
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CODEGEN_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:24 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/ComponentDescriptors.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/EventEmitters.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/Props.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/ShadowNodes.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/States.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/rnscreensJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# rnsvg_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt:10 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/rnsvg.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# rnsvg_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt:10 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnsvg/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnsvg/RNSVGImageShadowNode.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnsvg/RNSVGImageState.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnsvg/RNSVGLayoutableShadowNode.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnsvg/RNSVGShadowNodes.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# rnsvg_codegen_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt:11 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/*cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/ComponentDescriptors.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/EventEmitters.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/Props.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/ShadowNodes.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/States.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/rnsvgJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
 # override_cpp_SRC at D:/xampp/htdocs/apps/crewcam/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:50 (file)
 # input_SRC at D:/xampp/htdocs/apps/crewcam/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:55 (file)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/*.cpp")
