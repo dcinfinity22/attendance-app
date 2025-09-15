@@ -1,61 +1,203 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React, { useRef, useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  ActivityIndicator,
+} from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import AsyncStorage from "@react-native-async-storage/async-storage"; // ✅ For saving token
+import { OtpScreenProps } from "../types/navigation";
 
-// Define the stack param list
-type RootStackParamList = {
-  LoginPassword: undefined;
-  LoginOTP: undefined;
-  Home: undefined;
-};
+export default function OtpScreen({ route, navigation }: OtpScreenProps) {
+  const { mobile, otp } = route.params; // OTP from API response
+  const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
+  const [loading, setLoading] = useState(false);
 
-type Props = NativeStackScreenProps<RootStackParamList, 'LoginOTP'>;
+  const inputs = useRef<(TextInput | null)[]>([]);
 
-const LoginOTPScreen = ({ navigation }: Props) => {
-  const [otp, setOtp] = useState('');
+  const handleChange = (text: string, index: number) => {
+    const newOtpValues = [...otpValues];
+    newOtpValues[index] = text;
+    setOtpValues(newOtpValues);
 
-  const handleLogin = () => {
-    navigation.navigate('Home');
+    if (text && index < 5) {
+      inputs.current[index + 1]?.focus();
+    }
+  };
+
+  const handleVerify = async () => {
+    const enteredOtp = otpValues.join("");
+    console.log(enteredOtp);
+    if (enteredOtp.length < 6) {
+      Alert.alert("Error", "Please enter full 6-digit OTP");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const formData = new FormData();
+      formData.append("mobile", mobile);
+      formData.append("otp", enteredOtp);
+
+      const response = await fetch(
+        "https://arogyamantra.com/app-api/verify-otp.php",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+      setLoading(false);
+
+      console.log("OTP Verify Response:", data);
+
+      if (data.status === "success") {
+        // ✅ Save token in AsyncStorage
+        await AsyncStorage.setItem("auth_token", data.token);
+        await AsyncStorage.setItem("user_mobile", data.mobile);
+
+        Alert.alert("Success", "Login Successful!");
+        navigation.replace("PaymentLeave");
+      } else {
+        Alert.alert("Invalid OTP", data.message || "Please try again");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+      Alert.alert("Error", "Something went wrong. Please try again.");
+    }
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.logo}>CREWCAM</Text>
-      <Text style={styles.info}>We'll send OTP in registered mobile no.</Text>
-      <View style={styles.otpContainer}>
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <TextInput
-            key={i}
-            style={styles.otpInput}
-            maxLength={1}
-            keyboardType="numeric"
-            onChangeText={(text) => {
-              const newOtp = otp.split('');
-              newOtp[i - 1] = text;
-              setOtp(newOtp.join(''));
-            }}
-          />
-        ))}
+    <KeyboardAwareScrollView
+      contentContainerStyle={styles.container}
+      enableOnAndroid={true}
+      extraScrollHeight={20}
+    >
+      <View style={styles.container}>
+        <Text style={styles.logo}>CREWCAM</Text>
+        <Text style={styles.subtitle}>
+          We'll send OTP in registered mobile no.
+        </Text>
+
+        {/* OTP Input Boxes */}
+        <View style={styles.otpContainer}>
+          {otpValues.map((value, index) => (
+            <TextInput
+              key={index}
+              ref={(ref) => {
+                inputs.current[index] = ref;
+              }}
+              style={styles.otpInput}
+              value={value}
+              onChangeText={(text) =>
+                handleChange(text.replace(/[^0-9]/g, ""), index)
+              }
+              keyboardType="number-pad"
+              maxLength={1}
+            />
+          ))}
+        </View>
+
+        {/* Verify Button */}
+        <TouchableOpacity
+          style={[
+            styles.button,
+            otpValues.join("").length < 6 && styles.disabled,
+          ]}
+          onPress={handleVerify}
+          disabled={otpValues.join("").length < 6 || loading}
+        >
+          {loading ? (
+            <ActivityIndicator color="#003366" />
+          ) : (
+            <Text style={styles.buttonText}>LOGIN NOW</Text>
+          )}
+        </TouchableOpacity>
+
+        {/* Resend OTP */}
+        <TouchableOpacity
+          onPress={() => Alert.alert("Resend OTP", "OTP has been resent.")}
+        >
+          <Text style={styles.resendText}>Resend OTP</Text>
+        </TouchableOpacity>
+
+        {/* Debug OTP */}
+        <Text style={styles.debug}>Debug OTP: {otp}</Text>
       </View>
-      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-        <Text style={styles.buttonText}>LOGIN NOW</Text>
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Text style={styles.resend}>Resend OTP</Text>
-      </TouchableOpacity>
-    </View>
+    </KeyboardAwareScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#003366', justifyContent: 'center', padding: 20 },
-  logo: { fontSize: 32, color: '#fff', textAlign: 'center', marginBottom: 40 },
-  info: { color: '#fff', textAlign: 'center', marginBottom: 20 },
-  otpContainer: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 },
-  otpInput: { backgroundColor: '#fff', width: 40, height: 40, textAlign: 'center', borderRadius: 5 },
-  loginButton: { backgroundColor: '#ccc', padding: 15, borderRadius: 5, alignItems: 'center' },
-  buttonText: { color: '#000', fontWeight: 'bold' },
-  resend: { color: '#fff', textAlign: 'center', marginTop: 20 },
+  container: {
+    flex: 1,
+    backgroundColor: "#024F7D",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
+  logo: {
+    fontSize: 32,
+    color: "#fff",
+    textAlign: "center",
+    marginBottom: 20,
+    fontWeight: "bold",
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#ddd",
+    textAlign: "center",
+    marginBottom: 30,
+  },
+  otpContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 30,
+  },
+  otpInput: {
+    width: 45,
+    height: 55,
+    borderWidth: 1,
+    borderColor: "#fff",
+    color: "#fff",
+    fontSize: 20,
+    textAlign: "center",
+    marginHorizontal: 5,
+    borderRadius: 5,
+  },
+  button: {
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 5,
+    alignItems: "center",
+    backgroundColor: "#fff",
+    marginBottom: 20,
+  },
+  disabled: {
+    backgroundColor: "#ccc",
+    opacity: 0.6,
+  },
+  buttonText: {
+    color: "#003366",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  resendText: {
+    fontSize: 16,
+    color: "#fff",
+    marginTop: 10,
+  },
+  debug: {
+    marginTop: 20,
+    textAlign: "center",
+    color: "yellow",
+    fontSize: 12,
+  },
 });
-
-export default LoginOTPScreen;

@@ -1,41 +1,29 @@
-// src/navigation/AppTabs.tsx
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import DashboardScreen from '../screens/HomeScreen';
-import NotificationScreen from '../screens/NotificationScreen';
-import HistoryScreen from '../screens/HistoryScreen';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faHome, faBell, faHistory } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../types/navigation";
+// Screens
+import LoginScreen from "../screens/LoginScreen";
+import OtpScreen from "../screens/OtpScreen";
+import PaymentLeaveScreen from "../screens/PaymentLeaveScreen";
+import DailyUpdateScreen from "../screens/DailyUpdateScreen";
+import HomeTabs from "../screens/HomeScreen"; // your bottom tabs
 
-type TabParamList = {
-  Dashboard: undefined;
-  Notifications: undefined;
-  History: undefined;
-};
 
-const Tab = createBottomTabNavigator<TabParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export default function AppTabs() {
+export default function AppNavigator() {
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        headerShown: false,
-        tabBarStyle: { backgroundColor: '#0E5C78' },
-        tabBarActiveTintColor: '#ffffff',
-        tabBarInactiveTintColor: '#ccc',
-        tabBarIcon: ({ color, size }) => {
-          const icons: Record<string, any> = {
-            Dashboard: faHome,
-            Notifications: faBell,
-            History: faHistory,
-          };
-          return <FontAwesomeIcon icon={icons[route.name]} size={size} color={color} />;
-        },
-      })}
-    >
-      <Tab.Screen name="Dashboard" component={DashboardScreen} />
-      <Tab.Screen name="Notifications" component={NotificationScreen} />
-      <Tab.Screen name="History" component={HistoryScreen} />
-    </Tab.Navigator>
+<Stack.Navigator screenOptions={{ headerShown: false }}>
+      {/* Auth flow */}
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Otp" component={OtpScreen} />
+
+      {/* After login + OTP */}
+      <Stack.Screen name="DailyUpdate" component={DailyUpdateScreen} />
+      <Stack.Screen name="PaymentLeave" component={PaymentLeaveScreen} />
+
+      {/* Final app tabs */}
+      <Stack.Screen name="HomeTabs" component={HomeTabs} />
+    </Stack.Navigator>
   );
 }

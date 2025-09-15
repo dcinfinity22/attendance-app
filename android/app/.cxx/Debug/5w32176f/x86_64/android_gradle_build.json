@@ -1,8 +1,10 @@
 {
   "buildFiles": [
+    "D:\\xampp\\htdocs\\apps\\crewcam\\node_modules\\@react-native-async-storage\\async-storage\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\crewcam\\node_modules\\react-native-safe-area-context\\android\\src\\main\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\crewcam\\node_modules\\react-native-screens\\android\\src\\main\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\crewcam\\node_modules\\react-native-svg\\android\\src\\main\\jni\\CMakeLists.txt",
+    "D:\\xampp\\htdocs\\apps\\crewcam\\node_modules\\react-native-vector-icons\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\crewcam\\node_modules\\react-native\\ReactAndroid\\cmake-utils\\default-app-setup\\CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
@@ -33,6 +35,16 @@
         "C:\\Users\\dell\\.gradle\\caches\\8.14.3\\transforms\\cba9d40536536f0777207a470c313f6b\\transformed\\react-android-0.81.1-debug\\prefab\\modules\\jsi\\libs\\android.x86_64\\libjsi.so",
         "C:\\Users\\dell\\.gradle\\caches\\8.14.3\\transforms\\cba9d40536536f0777207a470c313f6b\\transformed\\react-android-0.81.1-debug\\prefab\\modules\\reactnative\\libs\\android.x86_64\\libreactnative.so"
       ]
+    },
+    "react_codegen_RNVectorIconsSpec::@479809fae146501fd34d": {
+      "toolchain": "toolchain",
+      "abi": "x86_64",
+      "artifactName": "react_codegen_RNVectorIconsSpec"
+    },
+    "react_codegen_rnasyncstorage::@1596841e19ec5b9eeffe": {
+      "toolchain": "toolchain",
+      "abi": "x86_64",
+      "artifactName": "react_codegen_rnasyncstorage"
     },
     "react_codegen_rnscreens::@25bcbd507e98d3a854ad": {
       "toolchain": "toolchain",

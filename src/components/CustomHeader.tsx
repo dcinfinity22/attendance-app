@@ -11,31 +11,40 @@ type CustomHeaderProps = {
 
 export default function CustomHeader({ onMenuPress, onNotifPress }: CustomHeaderProps) {
   return (
-    <View style={styles.container}>
-      <View style={styles.left}>
-        <Pressable onPress={onMenuPress}>
-          <FontAwesomeIcon icon={faBars} size={24} color={colors.text} />
-        </Pressable>
-        <Text style={styles.logo}>CREWCAM</Text>
-      </View>
+    <View>
+      {/* Top green bar */}
+      <View style={styles.topBar} />
 
-      <View style={styles.right}>
-        <Pressable onPress={onNotifPress} style={{ marginRight: spacing(2) }}>
-          <FontAwesomeIcon icon={faBell} size={22} color={colors.text} />
-        </Pressable>
-        <Image
-          source={{ uri: "https://i.pravatar.cc/300" }}
-          style={styles.avatar}
-        />
+      <View style={styles.container}>
+        <View style={styles.left}>
+          <Pressable onPress={onMenuPress} style={{ marginRight: spacing(2) }}>
+            <FontAwesomeIcon icon={faBars} size={18} color={colors.text} />
+          </Pressable>
+          <Text style={styles.logo}>CREWCAM</Text>
+        </View>
+
+        <View style={styles.right}>
+          <Pressable onPress={onNotifPress} style={{ marginRight: spacing(2) }}>
+            <FontAwesomeIcon icon={faBell} size={18} color={colors.text} />
+          </Pressable>
+          <Image
+            source={{ uri: "https://i.pravatar.cc/300" }}
+            style={styles.avatar}
+          />
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  topBar: {
+    height: 36,
+    backgroundColor: colors.bg, // Light green; you can replace with your theme green
+  },
   container: {
-    height: 60,
-    backgroundColor: "#0f4f6a",
+    height: 40,
+    backgroundColor: "#040404ff",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -43,6 +52,6 @@ const styles = StyleSheet.create({
   },
   left: { flexDirection: "row", alignItems: "center", gap: spacing(1) },
   right: { flexDirection: "row", alignItems: "center" },
-  logo: { color: "#fff", fontSize: 20, fontWeight: "700" },
-  avatar: { width: 32, height: 32, borderRadius: 16 },
+  logo: { color: "#fff", fontSize: 18, fontWeight: "700" },
+  avatar: { width: 28, height: 28, borderRadius: 16 },
 });
