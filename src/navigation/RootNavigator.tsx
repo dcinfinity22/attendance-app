@@ -36,7 +36,7 @@ export default function RootNavigator() {
         {!isLoggedIn ? (
           <RootStack.Screen name="Auth" component={AuthNavigator} />
         ) : (
-          <RootStack.Screen name="PreHome" component={AuthNavigator} />
+          <RootStack.Screen name="PreHome" component={PreHomeNavigator} />
         )}
       </RootStack.Navigator>
     </NavigationContainer>

@@ -97,7 +97,7 @@ const LoginScreen = ({ navigation }: Props) => {
           value={mobile}
           onChangeText={setmobile}
           keyboardType="phone-pad"
-          maxLength={10} // Assuming phone number should be 10 digits
+          // maxLength={10} // Assuming phone number should be 10 digits
         />
 
         {/* Checkbox */}

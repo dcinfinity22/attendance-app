@@ -4,6 +4,6 @@ module.exports = {
     // other plugins you may have...
 
     // 👇 MUST be last
-    'react-native-reanimated/plugin',
+    'react-native-worklets/plugin',
   ],
 };
