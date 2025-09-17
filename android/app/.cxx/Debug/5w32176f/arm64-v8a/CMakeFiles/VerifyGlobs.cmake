@@ -37,6 +37,56 @@ if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/arm64-v8a/CMakeFiles/cmake.verify_globs")
 endif()
 
+# react_codegen_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/rngesturehandler_codegen-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/arm64-v8a/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/ComponentDescriptors.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/EventEmitters.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/Props.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/ShadowNodes.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/States.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/rngesturehandler_codegenJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/arm64-v8a/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/rnreanimated-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/arm64-v8a/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/ComponentDescriptors.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/EventEmitters.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/Props.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/ShadowNodes.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/States.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/rnreanimatedJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/arm64-v8a/CMakeFiles/cmake.verify_globs")
+endif()
+
 # LIB_CUSTOM_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt:12 (file)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-safe-area-context/android/src/main/jni/*.cpp")
 set(OLD_GLOB
@@ -193,6 +243,31 @@ set(OLD_GLOB
   "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-vector-icons/android/build/generated/source/codegen/jni/react/renderer/components/RNVectorIconsSpec/RNVectorIconsSpecJSI-generated.cpp"
   "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-vector-icons/android/build/generated/source/codegen/jni/react/renderer/components/RNVectorIconsSpec/ShadowNodes.cpp"
   "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-vector-icons/android/build/generated/source/codegen/jni/react/renderer/components/RNVectorIconsSpec/States.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/arm64-v8a/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/rnworklets-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "D:/xampp/htdocs/apps/crewcam/android/app/.cxx/Debug/5w32176f/arm64-v8a/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/react/renderer/components/rnworklets/*.cpp")
+set(OLD_GLOB
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/react/renderer/components/rnworklets/ComponentDescriptors.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/react/renderer/components/rnworklets/EventEmitters.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/react/renderer/components/rnworklets/Props.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/react/renderer/components/rnworklets/ShadowNodes.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/react/renderer/components/rnworklets/States.cpp"
+  "D:/xampp/htdocs/apps/crewcam/node_modules/react-native-worklets/android/build/generated/source/codegen/jni/react/renderer/components/rnworklets/rnworkletsJSI-generated.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

@@ -1,5 +1,5 @@
 export const colors = {
-  bg: '#0d4b66',         // deep teal/blue like your shots
+  bg: '#1e6178ff',         // deep teal/blue like your shots
   panel: '#0f5775',
   text: '#ffffff',
   muted: '#cbd5e1',

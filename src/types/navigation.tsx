@@ -1,17 +1,27 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+// Centralized navigation param lists for type safety
 
-export type RootStackParamList = {
+export type AuthStackParamList = {
   Login: undefined;
-  Otp: { mobile: string;
-    otp: string; };
-  DailyUpdate: undefined;
-  PaymentLeave: undefined;
-  HomeTabs: undefined;
+  Otp: { mobile: string; otp: string };
 };
 
-// Typed screen props for each screen
-export type LoginScreenProps = NativeStackScreenProps<RootStackParamList, "Login">;
-export type OtpScreenProps = NativeStackScreenProps<RootStackParamList, "Otp">;
-export type DailyUpdateScreenProps = NativeStackScreenProps<RootStackParamList, "DailyUpdate">;
-export type PaymentLeaveScreenProps = NativeStackScreenProps<RootStackParamList, "PaymentLeave">;
-export type HomeTabsProps = NativeStackScreenProps<RootStackParamList, "HomeTabs">;
+export type PreHomeStackParamList = {
+  PaymentNotification: undefined;
+  DailyUpdate: undefined;
+};
+
+export type AppTabParamList = {
+  Notifications: undefined;
+  Dashboard: undefined;
+  Attendance: undefined;
+  Leave: undefined;
+  Meeting: undefined;
+  EmpTracking: undefined;
+  MasterEye: undefined;
+};
+
+export type RootStackParamList = {
+  Auth: undefined;
+  PreHome: undefined;
+  App: undefined;
+};

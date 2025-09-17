@@ -8,7 +8,7 @@ interface BannerProps {
   additionalText?: string; // Optional for extra details (e.g., date, location)
 }
 
-const Banner: React.FC<BannerProps> = ({ imageUrl = 'https://example.com/banner.jpg', text = 'International Health & Wellness Seminar', additionalText }) => {
+const Banner: React.FC<BannerProps> = ({ imageUrl = 'https://namogangewellness.com/images/sliders/organic_expo_1755520632.webp', text = '', additionalText }) => {
   return (
     <View style={styles.container}>
       {/* Use a placeholder image or URI for the banner */}
@@ -27,14 +27,15 @@ const Banner: React.FC<BannerProps> = ({ imageUrl = 'https://example.com/banner.
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    margin: 10,
+    marginHorizontal: 15,
+    marginVertical:10,
     borderRadius: 5,
     overflow: 'hidden',
     position: 'relative',
   },
   image: {
     width: '100%',
-    height: 150,
+    height: 200,
   },
   text: {
     position: 'absolute',
