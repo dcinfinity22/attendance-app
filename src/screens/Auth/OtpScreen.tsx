@@ -78,7 +78,7 @@ export default function OtpScreen({ route }: Props) {
         Alert.alert("Success", "Login Successful!");
 
         // 👇 Always start from PreHome → PaymentLeave
-        navigation.replace("PreHome");
+        navigation.navigate("PreHome");
       } else {
         Alert.alert("Invalid OTP", data.message || "Please try again");
       }

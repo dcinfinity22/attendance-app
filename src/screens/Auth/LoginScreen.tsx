@@ -1,35 +1,39 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
   Alert,
   ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  Image,
 } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
-  faEye,
-  faEyeSlash,
   faCheckSquare,
   faSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { StackNavigationProp } from '@react-navigation/stack';
-import { AuthStackParamList  } from "../../types/navigation";
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import FloatingLabelInput from './FloatingLabelInput'; // Assuming this component exists
 
-type Props = {
-  navigation: StackNavigationProp<AuthStackParamList, 'Login'>;
+// Define the stack param list for navigation
+type RootStackParamList = {
+  Login: undefined;
+  Otp: { mobile: string, otp: string };
+  // Add other screens if necessary
 };
-export default function LoginScreen({ navigation }: Props) {
-  const [mobile, setMobile] = useState("");
-  const [password, setPassword] = useState("");
+
+type Props = NativeStackScreenProps<RootStackParamList, "Login">;
+
+const LoginScreen = ({ navigation }: Props) => {
+  const [empCode, setEmpCode] = useState("");
+  const [mobile, setmobile] = useState("");
   const [agreed, setAgreed] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const isLoginEnabled = mobile.length === 10 && password.length > 0 && agreed;
+  const isLoginEnabled = empCode.length > 0 && mobile.length > 0 && agreed;
 
   const handleLogin = async () => {
     if (!isLoginEnabled) {
@@ -41,9 +45,10 @@ export default function LoginScreen({ navigation }: Props) {
       setLoading(true);
 
       const formData = new FormData();
+      formData.append("empCode", empCode);
       formData.append("mobile", mobile);
-      formData.append("password", password);
-
+       console.log(formData ,"ttutututtttttt");
+       
       const response = await fetch("https://arogyamantra.com/app-api/login.php", {
         method: "POST",
         body: formData,
@@ -55,7 +60,7 @@ export default function LoginScreen({ navigation }: Props) {
 
       if (data.result === "true") {
         Alert.alert("Success", "OTP sent successfully");
-        navigation.navigate("Otp", { mobile, otp: data.otp });
+        navigation.navigate("Otp", { mobile: mobile, otp: data.otp });
       } else {
         Alert.alert("Login Failed", data.message || "Invalid credentials");
       }
@@ -67,47 +72,33 @@ export default function LoginScreen({ navigation }: Props) {
   };
 
   return (
-    <KeyboardAwareScrollView
-      contentContainerStyle={{ flexGrow: 1 }}
-      enableOnAndroid={true}
-      extraScrollHeight={40}
-      keyboardShouldPersistTaps="handled"
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.keyboardAvoidingContainer}
     >
       <View style={styles.container}>
-        <Text style={styles.logo}>CREWCAM</Text>
-
-        {/* Mobile Input */}
-        <TextInput
-          style={styles.input}
-          placeholder="Mobile Number"
-          placeholderTextColor="#bbb"
-          value={mobile}
-          onChangeText={(text) => setMobile(text.replace(/[^0-9]/g, ""))}
-          keyboardType="number-pad"
-          maxLength={10}
+        {/* Replace the Text logo with an Image */}
+        <Image
+          source={require("../../assets/white-logo.png")}
+          style={styles.logoImage}
         />
 
-        {/* Password Input */}
-        <View style={styles.passwordContainer}>
-          <TextInput
-            style={[styles.input, { marginBottom: 0 }]}
-            placeholder="Password"
-            placeholderTextColor="#bbb"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={!showPassword}
-          />
-          <TouchableOpacity
-            style={styles.eyeIcon}
-            onPress={() => setShowPassword(!showPassword)}
-          >
-            <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              size={20}
-              color="#fff"
-            />
-          </TouchableOpacity>
-        </View>
+        {/* Employee Code Input */}
+        <FloatingLabelInput
+          label="Employee Code"
+          value={empCode}
+          onChangeText={setEmpCode}
+          keyboardType="default"
+        />
+
+        {/* Phone Number Input */}
+        <FloatingLabelInput
+          label="Phone Number"
+          value={mobile}
+          onChangeText={setmobile}
+          keyboardType="phone-pad"
+          maxLength={10} // Assuming phone number should be 10 digits
+        />
 
         {/* Checkbox */}
         <TouchableOpacity
@@ -145,74 +136,68 @@ export default function LoginScreen({ navigation }: Props) {
                 { color: isLoginEnabled ? "#003366" : "#666" },
               ]}
             >
-              LOGIN
+              SEND OTP
             </Text>
           )}
         </TouchableOpacity>
       </View>
-    </KeyboardAwareScrollView>
+    </KeyboardAvoidingView>
   );
-}
+};
 
 const styles = StyleSheet.create({
+  keyboardAvoidingContainer: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: "#024F7D",
     justifyContent: "center",
     padding: 20,
   },
-  logo: {
-    fontSize: 32,
-    color: "#fff",
-    textAlign: "center",
+  logoImage: {
+    width: 250,
+    height: 80,
+    resizeMode: 'contain',
+    alignSelf: 'center',
     marginBottom: 40,
-    fontWeight: "bold",
-  },
-  input: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#fff",
-    color: "#fff",
-    fontSize: 16,
-    paddingVertical: 10,
-    marginBottom: 25,
-  },
-  passwordContainer: {
-    position: "relative",
-    justifyContent: "center",
-    marginBottom: 25,
-  },
-  eyeIcon: {
-    position: "absolute",
-    right: 0,
-    top: 10,
-    padding: 5,
   },
   checkboxContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 20,
+    width: '90%',
+    alignSelf: 'center',
   },
   checkboxText: {
     color: "#fff",
     marginLeft: 10,
-    flexShrink: 1,
+    flex: 1,
+    flexWrap: 'wrap',
   },
   termsText: {
-    color: "red",
+    color: "#FFA07A",
     fontWeight: "bold",
   },
   loginButton: {
     padding: 15,
     borderRadius: 5,
     alignItems: "center",
+    position: 'absolute',
+    bottom: 50,
+    width: '40%',
+    alignSelf: 'center',
   },
   loginButtonEnabled: {
     backgroundColor: "#fff",
   },
   loginButtonDisabled: {
     backgroundColor: "#ccc",
+    opacity: 0.5,
   },
   buttonText: {
     fontWeight: "bold",
   },
 });
+
+export default LoginScreen;
