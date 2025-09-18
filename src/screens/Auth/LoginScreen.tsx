@@ -5,35 +5,32 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
-  ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
   Image,
+  ActivityIndicator,
+  Platform,
+  KeyboardAvoidingView,
+  ScrollView,
 } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faCheckSquare,
-  faSquare,
-} from "@fortawesome/free-solid-svg-icons";
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import FloatingLabelInput from './FloatingLabelInput'; // Assuming this component exists
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-// Define the stack param list for navigation
+import { faCheckSquare, faSquare } from "@fortawesome/free-solid-svg-icons";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import FloatingLabelInput from "./FloatingLabelInput";
+
 type RootStackParamList = {
-  Login: undefined;
-  Otp: { mobile: string, otp: string };
-  // Add other screens if necessary
+  LoginPassword: undefined;
+  Otp: { mobile: string; otp: string };
+  Home: undefined;
 };
 
-type Props = NativeStackScreenProps<RootStackParamList, "Login">;
+type Props = NativeStackScreenProps<RootStackParamList, "LoginPassword">;
 
 const LoginScreen = ({ navigation }: Props) => {
   const [empCode, setEmpCode] = useState("");
-  const [mobile, setmobile] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const isLoginEnabled = empCode.length > 0 && mobile.length > 0 && agreed;
+  const isLoginEnabled = empCode.length > 0 && phoneNumber.length > 0 && agreed;
 
   const handleLogin = async () => {
     if (!isLoginEnabled) {
@@ -46,21 +43,25 @@ const LoginScreen = ({ navigation }: Props) => {
 
       const formData = new FormData();
       formData.append("empCode", empCode);
-      formData.append("mobile", mobile);
-       console.log(formData ,"ttutututtttttt");
-       
-      const response = await fetch("https://arogyamantra.com/app-api/login.php", {
-        method: "POST",
-        body: formData,
-      });
+      formData.append("mobile", phoneNumber);
+
+      const response = await fetch(
+        "https://arogyamantra.com/app-api/login.php",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await response.json();
       setLoading(false);
-      console.log("API Response:", data);
 
       if (data.result === "true") {
         Alert.alert("Success", "OTP sent successfully");
-        navigation.navigate("Otp", { mobile: mobile, otp: data.otp });
+        navigation.navigate("Otp", {
+          mobile: phoneNumber,
+          otp: data.otp,
+        });
       } else {
         Alert.alert("Login Failed", data.message || "Invalid credentials");
       }
@@ -72,20 +73,20 @@ const LoginScreen = ({ navigation }: Props) => {
   };
 
   return (
-     <KeyboardAwareScrollView
-      contentContainerStyle={{ flexGrow: 1 }}
-      enableOnAndroid={true}
-      extraScrollHeight={40}
-      keyboardShouldPersistTaps="handled"
+    <KeyboardAvoidingView
+      style={{ flex: 1, backgroundColor: "#024F7D" }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 0} // prevents button hiding
     >
-      <View style={styles.container}>
-        {/* Replace the Text logo with an Image */}
+      <ScrollView
+        contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps="handled"
+      >
         <Image
           source={require("../../assets/white-logo.png")}
           style={styles.logoImage}
         />
 
-        {/* Employee Code Input */}
         <FloatingLabelInput
           label="Employee Code"
           value={empCode}
@@ -93,16 +94,13 @@ const LoginScreen = ({ navigation }: Props) => {
           keyboardType="default"
         />
 
-        {/* Phone Number Input */}
         <FloatingLabelInput
           label="Phone Number"
-          value={mobile}
-          onChangeText={setmobile}
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
           keyboardType="phone-pad"
-          // maxLength={10} // Assuming phone number should be 10 digits
         />
 
-        {/* Checkbox */}
         <TouchableOpacity
           style={styles.checkboxContainer}
           onPress={() => setAgreed(!agreed)}
@@ -118,76 +116,70 @@ const LoginScreen = ({ navigation }: Props) => {
           </Text>
         </TouchableOpacity>
 
-        {/* Login Button */}
-        <TouchableOpacity
-          style={[
-            styles.loginButton,
-            isLoginEnabled
-              ? styles.loginButtonEnabled
-              : styles.loginButtonDisabled,
-          ]}
-          onPress={handleLogin}
-          disabled={!isLoginEnabled || loading}
-        >
-          {loading ? (
-            <ActivityIndicator color="#003366" />
-          ) : (
-            <Text
-              style={[
-                styles.buttonText,
-                { color: isLoginEnabled ? "#003366" : "#666" },
-              ]}
-            >
-              SEND OTP
-            </Text>
-          )}
-        </TouchableOpacity>
-      </View>
-    </KeyboardAwareScrollView>
+        {/* Button inside scroll so it moves with keyboard */}
+        <View style={styles.footer}>
+          <TouchableOpacity
+            style={[
+              styles.loginButton,
+              isLoginEnabled
+                ? styles.loginButtonEnabled
+                : styles.loginButtonDisabled,
+            ]}
+            onPress={handleLogin}
+            disabled={!isLoginEnabled || loading}
+          >
+            {loading ? (
+              <ActivityIndicator color="#003366" />
+            ) : (
+              <Text style={styles.buttonText}>SEND OTP</Text>
+            )}
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
- 
   container: {
-    flex: 1,
-    backgroundColor: "#024F7D",
+    flexGrow: 1,
     justifyContent: "center",
     padding: 20,
   },
   logoImage: {
     width: 250,
     height: 80,
-    resizeMode: 'contain',
-    alignSelf: 'center',
-    marginBottom: 20,
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginBottom: 40,
   },
   checkboxContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 20,
-    width: '90%',
-    alignSelf: 'center',
+    width: "90%",
+    alignSelf: "center",
   },
   checkboxText: {
     color: "#fff",
     marginLeft: 10,
     flex: 1,
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
   },
   termsText: {
     color: "#FFA07A",
     fontWeight: "bold",
+  },
+  footer: {
+    marginTop: 30,
     marginBottom: 20,
   },
   loginButton: {
     padding: 15,
     borderRadius: 5,
     alignItems: "center",
-    position: 'absolute',
-    bottom: 50,
-    width: '40%',
-    alignSelf: 'center',
+    width: "40%",
+    alignSelf: "center",
   },
   loginButtonEnabled: {
     backgroundColor: "#fff",
@@ -197,6 +189,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   buttonText: {
+    color: "#003366",
     fontWeight: "bold",
   },
 });
