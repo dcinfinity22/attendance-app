@@ -2,6 +2,7 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faHome,
@@ -15,6 +16,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 // Screens
 import DashboardScreen from "../screens/Main/DashboardScreen";
 import ToDoScreen from "../screens/Main/TodoScreens";
+import CreateTodo from "../screens/Main/CreateTodo";
 import UpdatesScreen from "../screens/Main/CompanyUpdates";
 import HrSupportScreen from "../screens/Main/HrSupport";
 import ProfileScreen from "../screens/Main/ProfileScreen";
@@ -27,7 +29,16 @@ import CustomDrawerContent from "../components/CustomDrawerContent";
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
-
+const ToDoStack = createStackNavigator();
+// ✅ ToDo Stack (for ToDo + CreateTodo)
+function ToDoStackNavigator() {
+  return (
+    <ToDoStack.Navigator screenOptions={{ headerShown: false }}>
+      <ToDoStack.Screen name="ToDoMain" component={ToDoScreen} />
+      <ToDoStack.Screen name="CreateTodo" component={CreateTodo} />
+    </ToDoStack.Navigator>
+  );
+}
 function BottomTabs() {
   return (
     <Tab.Navigator
@@ -52,7 +63,7 @@ function BottomTabs() {
     >
       {/* ✅ Now Dashboard & ToDo are separate */}
       <Tab.Screen name="Dashboard" component={DashboardScreen} />
-      <Tab.Screen name="ToDo" component={ToDoScreen} />
+      <Tab.Screen name="ToDo" component={ToDoStackNavigator} />
       <Tab.Screen name="CUpdates" component={UpdatesScreen} />
       <Tab.Screen name="HRSupport" component={HrSupportScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />

@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#bbb",
     borderRadius: 5,
-    paddingHorizontal: 15,
-    paddingTop: 15,
+    paddingHorizontal: 10,
+    paddingTop: 10,
     paddingBottom: 8,
     marginBottom: 25,
     width: '90%', // Ensures it's centered
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   input: {
     color: "#fff",
     fontSize: 13,
-    height: 40,
+    height: 36,
     paddingHorizontal: 0,
   },
   inputFocused: {

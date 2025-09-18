@@ -17,7 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import FloatingLabelInput from './FloatingLabelInput'; // Assuming this component exists
-
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 // Define the stack param list for navigation
 type RootStackParamList = {
   Login: undefined;
@@ -72,9 +72,11 @@ const LoginScreen = ({ navigation }: Props) => {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.keyboardAvoidingContainer}
+     <KeyboardAwareScrollView
+      contentContainerStyle={{ flexGrow: 1 }}
+      enableOnAndroid={true}
+      extraScrollHeight={40}
+      keyboardShouldPersistTaps="handled"
     >
       <View style={styles.container}>
         {/* Replace the Text logo with an Image */}
@@ -141,14 +143,12 @@ const LoginScreen = ({ navigation }: Props) => {
           )}
         </TouchableOpacity>
       </View>
-    </KeyboardAvoidingView>
+    </KeyboardAwareScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  keyboardAvoidingContainer: {
-    flex: 1,
-  },
+ 
   container: {
     flex: 1,
     backgroundColor: "#024F7D",
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     height: 80,
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginBottom: 40,
+    marginBottom: 20,
   },
   checkboxContainer: {
     flexDirection: "row",
@@ -178,6 +178,7 @@ const styles = StyleSheet.create({
   termsText: {
     color: "#FFA07A",
     fontWeight: "bold",
+    marginBottom: 20,
   },
   loginButton: {
     padding: 15,
