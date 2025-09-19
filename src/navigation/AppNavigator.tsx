@@ -40,14 +40,8 @@ import LeaveRequest from "../screens/Main/LeaveRequest";
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 const ToDoStack = createStackNavigator();
-<<<<<<< HEAD
 
 // ToDo Stack (for ToDo + CreateTodo)
-=======
-const HomeStack = createStackNavigator();
-const AttendanceStack = createStackNavigator();
-// ✅ ToDo Stack (for ToDo + CreateTodo)
->>>>>>> master
 function ToDoStackNavigator() {
   return (
     <ToDoStack.Navigator screenOptions={{ headerShown: false }}>
@@ -57,36 +51,6 @@ function ToDoStackNavigator() {
     </ToDoStack.Navigator>
   );
 }
-<<<<<<< HEAD
-
-=======
-function AttendanceStackNavigator() {
-  return (
-    <AttendanceStack.Navigator screenOptions={{ headerShown: false }}>
-      <AttendanceStack.Screen name="AttendanceMgmtMain" component={AttendanceScreen} /> 
-      <AttendanceStack.Screen name="DailyAttendance" component={DailyAttendanceScreen} />
-      <AttendanceStack.Screen name="Notification" component={NotificationsHello} />
-      <AttendanceStack.Screen name="AttendanceStatus" component={AttendanceStatus} />
-      <AttendanceStack.Screen name="LeaveRequest" component={LeaveRequest} />
-    </AttendanceStack.Navigator>
-  );
-}
-
-
-function HomeStackNavigator() {
-  return (
-    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-      <HomeStack.Screen name="DashboardMain" component={DashboardScreen} />
-      <HomeStack.Screen name="Notification" component={NotificationsHello} />
-      <HomeStack.Screen name="AttendanceMgmt" component={AttendanceStackNavigator} />      
-      <HomeStack.Screen name="LeaveMgmt" component={LeaveMgmt} />
-      <HomeStack.Screen name="MeetingVisit" component={MeetingVisit} />
-      <HomeStack.Screen name="Tracking" component={EmpTrackingScreen} />
-      <HomeStack.Screen name="MasterEye" component={MasterEye} />
-    </HomeStack.Navigator>
-  );
-}
->>>>>>> master
 function BottomTabs() {
   return (
     <Tab.Navigator
@@ -112,12 +76,7 @@ function BottomTabs() {
         },
       })}
     >
-<<<<<<< HEAD
       <Tab.Screen name="Home" component={DashboardScreen} />
-=======
-      {/* ✅ Now Dashboard & ToDo are separate */}
-      <Tab.Screen name="Home" component={HomeStackNavigator} />
->>>>>>> master
       <Tab.Screen name="ToDo" component={ToDoStackNavigator} />
       <Tab.Screen name="C.Updates" component={UpdatesScreen} />
       <Tab.Screen name="HR Support" component={HrSupportScreen} />
