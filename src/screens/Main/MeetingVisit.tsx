@@ -10,6 +10,7 @@ import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import CustomHeader from "../../components/CustomHeader";
 import { colors } from "../../theme";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 type RootStackParamList = {
   AddMeeting: undefined;
@@ -38,7 +39,7 @@ const MeetingVisit = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* ✅ Fixed Header */}
       <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
 
@@ -88,7 +89,7 @@ const MeetingVisit = () => {
           <Text style={styles.buttonText}>Add Site Visit</Text>
         </TouchableOpacity>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

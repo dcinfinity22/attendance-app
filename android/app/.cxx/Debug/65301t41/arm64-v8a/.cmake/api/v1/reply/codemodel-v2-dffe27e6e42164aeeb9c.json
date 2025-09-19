@@ -222,14 +222,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "appmodules::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-appmodules-Debug-80121ca13f27ccdb8eca.json",
+					"jsonFile" : "target-appmodules-Debug-7a8cd4d0fdf029efc076.json",
 					"name" : "appmodules",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "react_codegen_RNDateTimePickerCGen::@59b70ddc31ba2f8ef1d2",
-					"jsonFile" : "target-react_codegen_RNDateTimePickerCGen-Debug-60e0264f2b8157804946.json",
+					"jsonFile" : "target-react_codegen_RNDateTimePickerCGen-Debug-6639abceaa15ed89c1d8.json",
 					"name" : "react_codegen_RNDateTimePickerCGen",
 					"projectIndex" : 0
 				},
@@ -257,7 +257,7 @@
 				{
 					"directoryIndex" : 3,
 					"id" : "react_codegen_rnpicker::@e8bb2e9e833f47d0d516",
-					"jsonFile" : "target-react_codegen_rnpicker-Debug-8e95bb948270a42c0f23.json",
+					"jsonFile" : "target-react_codegen_rnpicker-Debug-53abf965396d12d17b50.json",
 					"name" : "react_codegen_rnpicker",
 					"projectIndex" : 0
 				},
@@ -271,14 +271,14 @@
 				{
 					"directoryIndex" : 7,
 					"id" : "react_codegen_rnscreens::@25bcbd507e98d3a854ad",
-					"jsonFile" : "target-react_codegen_rnscreens-Debug-5447438509da86849ae5.json",
+					"jsonFile" : "target-react_codegen_rnscreens-Debug-c7ff9c741f654135c0bf.json",
 					"name" : "react_codegen_rnscreens",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 8,
 					"id" : "react_codegen_rnsvg::@4f40eb209d0c0b4a3b65",
-					"jsonFile" : "target-react_codegen_rnsvg-Debug-b14d30102214307c3e22.json",
+					"jsonFile" : "target-react_codegen_rnsvg-Debug-5437ffe3ad6af848ef6e.json",
 					"name" : "react_codegen_rnsvg",
 					"projectIndex" : 0
 				},
@@ -292,7 +292,7 @@
 				{
 					"directoryIndex" : 6,
 					"id" : "react_codegen_safeareacontext::@7984cd80db47aa7b952a",
-					"jsonFile" : "target-react_codegen_safeareacontext-Debug-60d2a3607f841ba02891.json",
+					"jsonFile" : "target-react_codegen_safeareacontext-Debug-ed1e0d35852a3572d334.json",
 					"name" : "react_codegen_safeareacontext",
 					"projectIndex" : 0
 				}
@@ -302,7 +302,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/xampp/htdocs/apps/new/crewcam/android/app/.cxx/Debug/65301t41/x86",
+		"build" : "D:/xampp/htdocs/apps/new/crewcam/android/app/.cxx/Debug/65301t41/arm64-v8a",
 		"source" : "D:/xampp/htdocs/apps/new/crewcam/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup"
 	},
 	"version" : 

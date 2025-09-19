@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"; // ✅ import arrow icon
 import CustomHeader from "../../components/CustomHeader";
+import { SafeAreaView } from "react-native-safe-area-context";
 // Apne navigator ka type define karo
 type RootStackParamList = {
   Dashboard: undefined;
@@ -25,7 +26,7 @@ const TodoScreen = () => {
     navigation.navigate("Notification"); // Example navigation
   };
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
        {/* Custom Header */}
             <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
       <View style={styles.content}>
@@ -47,7 +48,7 @@ const TodoScreen = () => {
       >
         <FontAwesomeIcon icon={faArrowRight} size={20} color="#000" />
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 

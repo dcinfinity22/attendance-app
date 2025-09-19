@@ -12,6 +12,8 @@ import { colors } from '../../theme';
 import { DrawerActions } from "@react-navigation/native"
 import CustomHeader from '../../components/CustomHeader';
 import Banner from "../../components/Banner";
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 // A simple color theme object to match the provided image
 
 
@@ -41,7 +43,7 @@ const HrSupportScreen = ( { navigation }: any) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
         {/* Custom Header */}
       <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
@@ -102,7 +104,7 @@ const HrSupportScreen = ( { navigation }: any) => {
             </View>
           )}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

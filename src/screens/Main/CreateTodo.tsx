@@ -14,6 +14,7 @@ import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import CustomHeader from "../../components/CustomHeader";
 import { colors } from "../../theme";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 // Navigator type
 type RootStackParamList = {
@@ -65,7 +66,7 @@ const CreateTodoScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Custom Header */}
       <CustomHeader
         onMenuPress={handleMenuPress}
@@ -149,7 +150,7 @@ const CreateTodoScreen = () => {
           <Text style={styles.saveButtonText}>SAVE</Text>
         </TouchableOpacity>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

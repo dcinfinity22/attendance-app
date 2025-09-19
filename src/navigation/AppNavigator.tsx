@@ -13,7 +13,7 @@ import {
   faHistory,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-
+import {SafeAreaView} from "react-native-safe-area-context";
 // Screens
 import DashboardScreen from "../screens/Main/DashboardScreen";
 import ToDoScreen from "../screens/Main/TodoScreens";
@@ -40,14 +40,9 @@ import LeaveRequest from "../screens/Main/LeaveRequest";
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 const ToDoStack = createStackNavigator();
-<<<<<<< HEAD
-
-// ToDo Stack (for ToDo + CreateTodo)
-=======
 const HomeStack = createStackNavigator();
 const AttendanceStack = createStackNavigator();
 // ✅ ToDo Stack (for ToDo + CreateTodo)
->>>>>>> master
 function ToDoStackNavigator() {
   return (
     <ToDoStack.Navigator screenOptions={{ headerShown: false }}>
@@ -57,9 +52,6 @@ function ToDoStackNavigator() {
     </ToDoStack.Navigator>
   );
 }
-<<<<<<< HEAD
-
-=======
 function AttendanceStackNavigator() {
   return (
     <AttendanceStack.Navigator screenOptions={{ headerShown: false }}>
@@ -86,9 +78,9 @@ function HomeStackNavigator() {
     </HomeStack.Navigator>
   );
 }
->>>>>>> master
 function BottomTabs() {
   return (
+    <SafeAreaView style={{ flex: 1 }} edges={["bottom", "left", "right"]}>
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
@@ -96,7 +88,7 @@ function BottomTabs() {
         tabBarInactiveTintColor: "#ddd",
         tabBarStyle: { 
           backgroundColor: colors.panel,
-          height: 60, // Set a fixed height for the tab bar
+          height: 65, // Set a fixed height for the tab bar
         },
         tabBarIcon: ({ color, size }) => {
           let icon: IconProp = faHome; // default fallback
@@ -112,23 +104,20 @@ function BottomTabs() {
         },
       })}
     >
-<<<<<<< HEAD
-      <Tab.Screen name="Home" component={DashboardScreen} />
-=======
       {/* ✅ Now Dashboard & ToDo are separate */}
       <Tab.Screen name="Home" component={HomeStackNavigator} />
->>>>>>> master
       <Tab.Screen name="ToDo" component={ToDoStackNavigator} />
       <Tab.Screen name="C.Updates" component={UpdatesScreen} />
       <Tab.Screen name="HR Support" component={HrSupportScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
       <Tab.Screen name="History" component={HistoryScreen} />
     </Tab.Navigator>
+  </SafeAreaView>
   );
 }
 
 export default function AppNavigator() {
-  const bottomTabHeight = 60; // Match this value to the tabBarStyle height
+  const bottomTabHeight = 65; // Match this value to the tabBarStyle height
 
    return (
     <Drawer.Navigator

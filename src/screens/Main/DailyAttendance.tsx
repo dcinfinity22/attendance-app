@@ -8,6 +8,7 @@ import {
 import CustomHeader from "../../components/CustomHeader";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { colors } from "../../theme";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 type RootStackParamList = {
   DailyAttendance: undefined;
@@ -32,7 +33,7 @@ const DailyAttendanceScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* ✅ Fixed Header at Top */}
       <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
 
@@ -90,7 +91,7 @@ const DailyAttendanceScreen = () => {
           <Text style={styles.btnText}>URGENT LEAVE</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

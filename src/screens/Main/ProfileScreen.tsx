@@ -12,6 +12,7 @@ import { useNavigation, DrawerActions } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import CustomHeader from "../../components/CustomHeader";
 import { colors } from "../../theme"; // ✅ your theme colors
+import { SafeAreaView } from "react-native-safe-area-context";
 
 // Navigation type
 type RootStackParamList = { Dashboard: undefined };
@@ -30,7 +31,7 @@ const ProfileScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
 
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
@@ -97,7 +98,7 @@ const ProfileScreen = () => {
           </View>
         )}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

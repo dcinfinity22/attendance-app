@@ -222,77 +222,77 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "appmodules::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-appmodules-Debug-ab6ba827506dc0150f36.json",
+					"jsonFile" : "target-appmodules-Debug-e6795dbfc16d86eb8da6.json",
 					"name" : "appmodules",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "react_codegen_RNDateTimePickerCGen::@59b70ddc31ba2f8ef1d2",
-					"jsonFile" : "target-react_codegen_RNDateTimePickerCGen-Debug-6639abceaa15ed89c1d8.json",
+					"jsonFile" : "target-react_codegen_RNDateTimePickerCGen-Debug-9e3aaadc15bf5f773854.json",
 					"name" : "react_codegen_RNDateTimePickerCGen",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 9,
 					"id" : "react_codegen_RNVectorIconsSpec::@479809fae146501fd34d",
-					"jsonFile" : "target-react_codegen_RNVectorIconsSpec-Debug-21888acc7a3848ab5fd8.json",
+					"jsonFile" : "target-react_codegen_RNVectorIconsSpec-Debug-51585aad30bc4333f72e.json",
 					"name" : "react_codegen_RNVectorIconsSpec",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "react_codegen_rnasyncstorage::@1596841e19ec5b9eeffe",
-					"jsonFile" : "target-react_codegen_rnasyncstorage-Debug-5721c85f447e60f66d9c.json",
+					"jsonFile" : "target-react_codegen_rnasyncstorage-Debug-37953a10e9ba8edf7978.json",
 					"name" : "react_codegen_rnasyncstorage",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "react_codegen_rngesturehandler_codegen::@39f233abcd2c728bc6ec",
-					"jsonFile" : "target-react_codegen_rngesturehandler_codegen-Debug-4cd51bdfdf6743a4d888.json",
+					"jsonFile" : "target-react_codegen_rngesturehandler_codegen-Debug-9c3aedeb7626c0a26232.json",
 					"name" : "react_codegen_rngesturehandler_codegen",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "react_codegen_rnpicker::@e8bb2e9e833f47d0d516",
-					"jsonFile" : "target-react_codegen_rnpicker-Debug-53abf965396d12d17b50.json",
+					"jsonFile" : "target-react_codegen_rnpicker-Debug-a7838355cafde2143f23.json",
 					"name" : "react_codegen_rnpicker",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 5,
 					"id" : "react_codegen_rnreanimated::@8afabad14bfffa3f8b9a",
-					"jsonFile" : "target-react_codegen_rnreanimated-Debug-5eeb1fe169df4c6d2e72.json",
+					"jsonFile" : "target-react_codegen_rnreanimated-Debug-74689f5c67618b5c59c5.json",
 					"name" : "react_codegen_rnreanimated",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 7,
 					"id" : "react_codegen_rnscreens::@25bcbd507e98d3a854ad",
-					"jsonFile" : "target-react_codegen_rnscreens-Debug-c7ff9c741f654135c0bf.json",
+					"jsonFile" : "target-react_codegen_rnscreens-Debug-7df3266dd92fef7dea38.json",
 					"name" : "react_codegen_rnscreens",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 8,
 					"id" : "react_codegen_rnsvg::@4f40eb209d0c0b4a3b65",
-					"jsonFile" : "target-react_codegen_rnsvg-Debug-5437ffe3ad6af848ef6e.json",
+					"jsonFile" : "target-react_codegen_rnsvg-Debug-c05fd7c84b45222899ba.json",
 					"name" : "react_codegen_rnsvg",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 10,
 					"id" : "react_codegen_rnworklets::@68f58d84d4754f193387",
-					"jsonFile" : "target-react_codegen_rnworklets-Debug-0bfafaa6eca41a543002.json",
+					"jsonFile" : "target-react_codegen_rnworklets-Debug-31ecab5b6ee8e2f4d192.json",
 					"name" : "react_codegen_rnworklets",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 6,
 					"id" : "react_codegen_safeareacontext::@7984cd80db47aa7b952a",
-					"jsonFile" : "target-react_codegen_safeareacontext-Debug-ed1e0d35852a3572d334.json",
+					"jsonFile" : "target-react_codegen_safeareacontext-Debug-d1d5bff4dfd6d1a0b2d1.json",
 					"name" : "react_codegen_safeareacontext",
 					"projectIndex" : 0
 				}
@@ -302,7 +302,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/xampp/htdocs/apps/new/crewcam/android/app/.cxx/Debug/65301t41/arm64-v8a",
+		"build" : "D:/xampp/htdocs/apps/new/crewcam/android/app/.cxx/Debug/65301t41/armeabi-v7a",
 		"source" : "D:/xampp/htdocs/apps/new/crewcam/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup"
 	},
 	"version" : 

@@ -13,6 +13,7 @@ import CustomHeader from "../../components/CustomHeader";
 import { colors } from "../../theme";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 type RootStackParamList = {
   Dashboard: undefined;
@@ -41,7 +42,7 @@ const EmpTrackingScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* ✅ Custom Header */}
       <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
 
@@ -88,7 +89,7 @@ const EmpTrackingScreen = () => {
         </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

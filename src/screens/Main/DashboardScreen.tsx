@@ -9,7 +9,7 @@ import {
   faMapMarker,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 import MenuItem from "../../components/MenuItem";
 import CustomHeader from "../../components/CustomHeader";
 import Banner from "../../components/Banner";
@@ -25,7 +25,7 @@ export default function DashboardScreen({ navigation }: any) {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Custom Header */}
       <CustomHeader
         onMenuPress={handleMenuPress}
@@ -64,7 +64,7 @@ export default function DashboardScreen({ navigation }: any) {
           onPress={() => navigation.navigate("MasterEye")} // (add screen later)
         />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

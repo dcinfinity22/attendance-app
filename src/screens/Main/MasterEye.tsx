@@ -1,9 +1,10 @@
 
 import React from 'react'
 import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 const MasterEye = () => {
   return (
-    <View>MasterEye</View>
+    <SafeAreaView>MasterEye</SafeAreaView>
   )
 }
 

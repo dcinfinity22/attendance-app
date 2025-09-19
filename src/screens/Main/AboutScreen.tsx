@@ -3,14 +3,14 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
 
-const AboutScreen = ({ navigation }) => {
+const AboutScreen = ({ navigation }: any) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       {/* Header */}

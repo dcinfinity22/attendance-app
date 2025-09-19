@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { colors } from '../../theme';
@@ -19,7 +20,7 @@ const HOLIDAYS_DATA = [
 ];
 
 // Reusable Header Component
-const AppHeader = ({ title, onBackPress, onHomePress }) => (
+const AppHeader = ({ title, onBackPress, onHomePress }:any) => (
   <View style={styles.appHeader}>
     <TouchableOpacity onPress={onBackPress} style={styles.iconButton}>
       <FontAwesomeIcon icon={faArrowLeft} size={20} color="#fff" />
@@ -32,7 +33,7 @@ const AppHeader = ({ title, onBackPress, onHomePress }) => (
 );
 
 // Reusable Holiday List Item Component
-const HolidayItem = ({ holiday }) => (
+const HolidayItem = ({ holiday }:any) => (
   <View style={styles.holidayItem}>
     <View style={styles.dateContainer}>
       <Text style={styles.holidayDate}>{holiday.date}</Text>
@@ -46,7 +47,7 @@ const HolidayItem = ({ holiday }) => (
   </View>
 );
 
-const HolidayListScreen = ({ navigation }) => {
+const HolidayListScreen = ({ navigation }:any) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Top Header */}

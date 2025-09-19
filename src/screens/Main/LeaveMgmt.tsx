@@ -10,6 +10,7 @@ import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import CustomHeader from "../../components/CustomHeader";
 import { colors } from "../../theme";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 type RootStackParamList = {
   UrgentLeave: undefined;
@@ -35,7 +36,7 @@ const LeaveMgmt = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* ✅ Fixed Custom Header */}
       <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
 
@@ -75,7 +76,7 @@ const LeaveMgmt = () => {
           <Text style={styles.buttonText}>Outstation Leave</Text>
         </TouchableOpacity>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

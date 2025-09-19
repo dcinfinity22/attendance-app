@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { colors } from "../../theme";
 import CustomHeader from "../../components/CustomHeader";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 type RootStackParamList = {
   DailyAttendance: undefined;
@@ -36,7 +37,7 @@ const AttendanceMgmtScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Header */}
       <CustomHeader
         onMenuPress={handleMenuPress}
@@ -73,7 +74,7 @@ const AttendanceMgmtScreen = () => {
           onPress={() => navigation.navigate("LeaveRequest")}
         />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
