@@ -13,6 +13,7 @@ import {
   faHistory,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 // Screens
 import DashboardScreen from "../screens/Main/DashboardScreen";
 import ToDoScreen from "../screens/Main/TodoScreens";
@@ -30,7 +31,8 @@ import CustomDrawerContent from "../components/CustomDrawerContent";
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 const ToDoStack = createStackNavigator();
-// ✅ ToDo Stack (for ToDo + CreateTodo)
+
+// ToDo Stack (for ToDo + CreateTodo)
 function ToDoStackNavigator() {
   return (
     <ToDoStack.Navigator screenOptions={{ headerShown: false }}>
@@ -39,6 +41,7 @@ function ToDoStackNavigator() {
     </ToDoStack.Navigator>
   );
 }
+
 function BottomTabs() {
   return (
     <Tab.Navigator
@@ -46,9 +49,12 @@ function BottomTabs() {
         headerShown: false,
         tabBarActiveTintColor: "#fff",
         tabBarInactiveTintColor: "#ddd",
-        tabBarStyle: { backgroundColor: colors.panel },
+        tabBarStyle: { 
+          backgroundColor: colors.panel,
+          height: 60, // Set a fixed height for the tab bar
+        },
         tabBarIcon: ({ color, size }) => {
-          let icon: IconProp = faHome; // default fallback ✅
+          let icon: IconProp = faHome; // default fallback
 
           if (route.name === "Dashboard") icon = faHome;
           else if (route.name === "ToDo") icon = faCalendarCheck;
@@ -57,15 +63,14 @@ function BottomTabs() {
           else if (route.name === "Profile") icon = faUser;
           else if (route.name === "History") icon = faHistory;
 
-          return <FontAwesomeIcon icon={icon} size={size ?? 20} color={color} />;
+          return <FontAwesomeIcon icon={icon} size={16} color={color} />;
         },
       })}
     >
-      {/* ✅ Now Dashboard & ToDo are separate */}
-      <Tab.Screen name="Dashboard" component={DashboardScreen} />
+      <Tab.Screen name="Home" component={DashboardScreen} />
       <Tab.Screen name="ToDo" component={ToDoStackNavigator} />
-      <Tab.Screen name="CUpdates" component={UpdatesScreen} />
-      <Tab.Screen name="HRSupport" component={HrSupportScreen} />
+      <Tab.Screen name="C.Updates" component={UpdatesScreen} />
+      <Tab.Screen name="HR Support" component={HrSupportScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
       <Tab.Screen name="History" component={HistoryScreen} />
     </Tab.Navigator>
@@ -73,19 +78,19 @@ function BottomTabs() {
 }
 
 export default function AppNavigator() {
-  return (
+  const bottomTabHeight = 60; // Match this value to the tabBarStyle height
+
+   return (
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
-        drawerType: "front", // ✅ overlay drawer
+        drawerType: "front",
         drawerStyle: {
-          width: 250,
-          marginTop: 36, // ✅ drawer niche se start karega
-          marginBottom: 93, // ✅ bottom tabs ke upar khatam hoga
+          marginBottom: bottomTabHeight,
           backgroundColor: "#fff",
-          zIndex:111,
+          zIndex: 111,
         },
-        overlayColor: "transparent", // ✅ dark overlay hata diya
+        overlayColor: "transparent",
       }}
     >
       <Drawer.Screen
@@ -93,6 +98,11 @@ export default function AppNavigator() {
         component={BottomTabs}
         options={{ headerShown: false }}
       />
+      {/* Navigate to the AboutStack instead of the AboutScreen directly */}
+      <Drawer.Screen name="About" component={AboutScreen}  options={{ headerShown: false} }/>
+      {/* You can add other screens here if needed, for example: */}
+      <Drawer.Screen name="HolidayList" component={HolidayListScreen} options={{ headerShown: false} } />
     </Drawer.Navigator>
   );
+
 }

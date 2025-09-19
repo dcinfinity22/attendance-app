@@ -9,18 +9,19 @@ type CustomHeaderProps = {
   onNotifPress: () => void;
 };
 
+// Make sure to update the path to your logo file
+const logo = require("../assets/white-logo.png");
+
 export default function CustomHeader({ onMenuPress, onNotifPress }: CustomHeaderProps) {
   return (
     <View>
-      {/* Top green bar */}
-      <View style={styles.topBar} />
-
       <View style={styles.container}>
         <View style={styles.left}>
           <Pressable onPress={onMenuPress} style={{ marginRight: spacing(2) }}>
             <FontAwesomeIcon icon={faBars} size={18} color={colors.text} />
           </Pressable>
-          <Text style={styles.logo}>CREWCAM</Text>
+          {/* ✅ The logo image replaces the text here */}
+          <Image source={logo} style={styles.logoImage} resizeMode="contain" />
         </View>
 
         <View style={styles.right}>
@@ -38,13 +39,9 @@ export default function CustomHeader({ onMenuPress, onNotifPress }: CustomHeader
 }
 
 const styles = StyleSheet.create({
-  topBar: {
-    height: 36,
-    backgroundColor: colors.bg, // Light green; you can replace with your theme green
-  },
   container: {
     height: 40,
-    backgroundColor: "#040404ff",
+    backgroundColor: "#363435",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -52,6 +49,9 @@ const styles = StyleSheet.create({
   },
   left: { flexDirection: "row", alignItems: "center", gap: spacing(1) },
   right: { flexDirection: "row", alignItems: "center" },
-  logo: { color: "#fff", fontSize: 18, fontWeight: "700" },
-  avatar: { width: 28, height: 28, borderRadius: 16 },
+  logoImage: {
+    width: 120, // Adjust the width as needed
+    height: 30, // Adjust the height as needed
+  },
+  avatar: { width: 28, height: 28, borderRadius: 0 },
 });

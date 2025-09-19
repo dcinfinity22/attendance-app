@@ -1,89 +1,91 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   View,
   Text,
   TextInput,
   TouchableOpacity,
-  Image,
   StyleSheet,
   ScrollView,
-} from "react-native";
-import { useNavigation, DrawerActions } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { Picker } from "@react-native-picker/picker";
-import CustomHeader from "../../components/CustomHeader"; // ✅ same as ProfileScreen
-import { colors } from "../../theme"; // ✅ your theme
+} from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import { colors } from '../../theme';
+import { DrawerActions } from "@react-navigation/native"
+import CustomHeader from '../../components/CustomHeader';
+import Banner from "../../components/Banner";
+// A simple color theme object to match the provided image
 
-// Navigation type
-type RootStackParamList = { Dashboard: undefined };
-type NavigationProp = StackNavigationProp<RootStackParamList>;
 
-const HrSupportScreen = () => {
-  const [query, setQuery] = useState("Application crashed issue");
-  const [remark, setRemark] = useState("");
-  const navigation = useNavigation<NavigationProp>();
+const HrSupportScreen = ( { navigation }: any) => {
+  const [query, setQuery] = useState('Application crashed issue');
+  const [remark, setRemark] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleMenuPress = () => {
-    navigation.dispatch(DrawerActions.openDrawer());
-  };
-
-  const handleNotifPress = () => {
-    navigation.navigate("Dashboard");
-  };
-
+  // Function to handle the form submission
   const handleSend = () => {
     console.log("Query:", query);
     console.log("Remark:", remark);
-    //alert("✅ Your HR query has been submitted!");
+    setIsSubmitted(true);
+    // Clear the form and success message after a short delay
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setQuery('Application crashed issue');
+      setRemark('');
+    }, 3000);
+  };
+  const handleMenuPress = () => {
+    navigation.dispatch(DrawerActions.openDrawer()); // ✅ Open Drawer
+  };
+
+  const handleNotifPress = () => {
+    navigation.navigate("Updates"); // Example navigation
   };
 
   return (
     <View style={styles.container}>
-      {/* ✅ Custom Header */}
+
+        {/* Custom Header */}
       <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
 
-      <ScrollView contentContainerStyle={{ padding: 20 }}>
-        {/* Greeting / Instructions */}
-        <View style={styles.card}>
-          <Text style={styles.title}>📝 HR Support</Text>
-          <Text style={styles.subText}>
-            Select your query, add remarks, and attach files if required. Our HR
-            team will get back to you.
-          </Text>
-        </View>
 
+      {/* Support Us Header */}
+ 
+      <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Query Dropdown */}
-        <Text style={styles.label}>Select your query</Text>
-        <View style={styles.pickerWrapper}>
-          <Picker
-            selectedValue={query}
-            onValueChange={(itemValue) => setQuery(itemValue)}
-          >
-            <Picker.Item label="Application crashed issue" value="crash" />
-            <Picker.Item label="Login issue" value="login" />
-            <Picker.Item label="Password reset" value="password" />
-            <Picker.Item label="Other" value="other" />
-          </Picker>
+        <View style={styles.formSection}>
+            <Text style={styles.heading}>Suport Us</Text>
+          <Text style={styles.label}>Select your query</Text>
+          <View style={styles.pickerWrapper}>
+            <Picker
+              selectedValue={query}
+              onValueChange={(itemValue) => setQuery(itemValue)}
+            >
+              <Picker.Item label="Application crashed issue" value="Application crashed issue" />
+              <Picker.Item label="Login issue" value="Login issue" />
+              <Picker.Item label="Password reset" value="Password reset" />
+              <Picker.Item label="Other" value="Other" />
+            </Picker>
+          </View>
         </View>
 
-        {/* Remark */}
-        <Text style={styles.label}>Remark</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter your remark"
-          value={remark}
-          onChangeText={setRemark}
-          multiline
-        />
-
-        {/* Attachment */}
-        <Text style={styles.label}>Click below to add attachment</Text>
-        <TouchableOpacity style={styles.attachmentBtn}>
-          <Image
-            source={require("../../assets/attachment.png")} // 👈 replace with your icon
-            style={styles.attachmentIcon}
+        {/* Remark Text Input */}
+        <View style={styles.formSection}>
+          <Text style={styles.label}>Remark</Text>
+          <TextInput
+            placeholder="Enter your remark"
+            value={remark}
+            onChangeText={setRemark}
+            multiline
+            style={styles.remarkInput}
           />
-        </TouchableOpacity>
+        </View>
+        
+        {/* Attachment Button */}
+        <View style={styles.attachmentContainer}>
+          <Text style={styles.label}>Click below icon to add attachment.</Text>
+          <TouchableOpacity style={styles.attachmentButton}>
+            <Text style={{ fontSize: 40, color: '#2c525f' }}>📎</Text>
+          </TouchableOpacity>
+        </View>
 
         {/* Send Button */}
         <TouchableOpacity style={styles.sendButton} onPress={handleSend}>
@@ -91,67 +93,112 @@ const HrSupportScreen = () => {
         </TouchableOpacity>
 
         {/* Section Footer */}
-        <Text style={styles.sectionTitle}>📌 HR Queries</Text>
+        <Text style={styles.sectionTitle}>HR Queries</Text>
+        
+        {/* Submission success message */}
+        {isSubmitted && (
+            <View style={styles.successMessage}>
+              <Text style={styles.successText}>✅ Your HR query has been submitted!</Text>
+            </View>
+          )}
       </ScrollView>
     </View>
   );
 };
 
-export default HrSupportScreen;
-
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.bg },
-  card: {
-    backgroundColor: "#fff",
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 20,
-    elevation: 3,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
   },
-  title: { fontSize: 18, fontWeight: "bold", color: colors.panel },
-  subText: { fontSize: 14, color: "#555", marginTop: 5 },
-  label: { fontSize: 14, color: "#444", marginBottom: 6, marginTop: 12 },
+  scrollContent: {
+    padding: 20,
+  },
+  appHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#363435',
+    paddingHorizontal: 16,
+    height: 40,
+  },
+  headerTitle: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: '#fff',
+  },
+  formSection: {
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 14,
+    color: '#444',
+    marginBottom: 5,
+  },
+    heading: {
+    fontSize: 20,
+    color: '#444',
+    fontWeight:400,
+    marginBottom: 8,
+  },
   pickerWrapper: {
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    backgroundColor: "#fff",
+    borderColor: '#ccc',
+    borderRadius: 5,
+    overflow: 'hidden',
   },
-  input: {
+  remarkInput: {
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    backgroundColor: "#fff",
+    borderColor: '#ccc',
+    borderRadius: 5,
     fontSize: 14,
-    padding: 10,
-    minHeight: 60,
-    textAlignVertical: "top",
+    paddingHorizontal: 10,
+    minHeight: 40,
   },
-  attachmentBtn: {
-    alignSelf: "center",
-    marginVertical: 16,
+  attachmentContainer: {
+    alignItems: 'flex-start',
+    marginBottom: 20,
   },
-  attachmentIcon: { width: 80, height: 80, resizeMode: "contain" },
+  attachmentButton: {
+    marginTop: 10,
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   sendButton: {
-    backgroundColor: colors.panel,
-    borderRadius: 8,
+    backgroundColor: colors.bg,
     paddingVertical: 12,
-    alignItems: "center",
-    marginVertical: 16,
+    borderRadius: 0,
+    alignItems: 'center',
+    marginBottom: 20,
   },
   sendText: {
-    color: "#fff",
-    fontWeight: "bold",
+    color: '#fff',
+    fontWeight: 'bold',
     fontSize: 16,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
   sectionTitle: {
     fontSize: 16,
-    fontWeight: "600",
-    marginTop: 20,
-    color: "#333",
-    borderBottomWidth: 2,
-    borderBottomColor: "#ccc",
-    alignSelf: "flex-start",
+    fontWeight: 'bold',
+    color: '#444',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    paddingBottom: 5,
+  },
+  successMessage: {
+    marginTop: 16,
+    padding: 12,
+    backgroundColor: '#d1fae5',
+    borderRadius: 6,
+    alignItems: 'center',
+  },
+  successText: {
+    color: '#065f46',
+    fontSize: 14,
+    fontWeight: '500',
   },
 });
+
+export default HrSupportScreen;

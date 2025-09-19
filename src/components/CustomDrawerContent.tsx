@@ -1,16 +1,23 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
+  Image,
 } from "react-native";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faInfoCircle, faClipboardList, faPowerOff } from "@fortawesome/free-solid-svg-icons";
-import { AuthContext } from "../context/AuthContext"; 
+import {
+  faInfoCircle,
+  faClipboardList,
+  faPowerOff,
+} from "@fortawesome/free-solid-svg-icons";
+import { AuthContext } from "../context/AuthContext";
+
+// Make sure to update the path to your logo
+const logo = require("../assets/white-logo.png");
 
 const CustomDrawerContent = (props: any) => {
   const { logout } = useContext(AuthContext);
@@ -19,12 +26,12 @@ const CustomDrawerContent = (props: any) => {
     <SafeAreaView style={{ flex: 1 }}>
       {/* ✅ Drawer Header */}
       <View style={styles.header}>
-        <Text style={styles.logoText}>CREWCAM</Text>
-        <Text style={styles.userName}>Mohit Tyagi</Text>
+        <Image source={logo} style={styles.logo} resizeMode="contain" />
+        <Text style={styles.userName}>Ajit Roy</Text>
       </View>
 
       {/* ✅ Drawer Menu */}
-      <DrawerContentScrollView {...props} style={{ marginBottom: 120 }}>
+      <DrawerContentScrollView {...props}>
         <TouchableOpacity
           style={styles.menuItem}
           onPress={() => props.navigation.navigate("About")}
@@ -53,21 +60,21 @@ const CustomDrawerContent = (props: any) => {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#1f6d8cff",
+    backgroundColor: "#1f6d8c", // Solid blue background color
     padding: 20,
     alignItems: "center",
-    height: 200,
     justifyContent: "center",
+    height: 180, // Adjust this height as needed
   },
-  logoText: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#fff",
-    textAlign: "center",
+  logo: {
+    width: 150, // Adjust this width as needed
+    height: 90, // Adjust this height as needed
+    marginBottom: 10,
   },
   userName: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#fff",
+    fontWeight: "bold",
     marginTop: 4,
     textAlign: "center",
   },
@@ -76,7 +83,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 15,
     borderBottomColor: "#eee",
-    borderBottomWidth: 1,
+    borderBottomWidth: 0,
   },
   menuText: { fontSize: 16, marginLeft: 15 },
 });
