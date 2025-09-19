@@ -21,13 +21,16 @@ export default function DashboardScreen({ navigation }: any) {
   };
 
   const handleNotifPress = () => {
-    navigation.navigate("Updates"); // Example navigation
+    navigation.navigate("Notification"); // ✅ Fixed route name
   };
 
   return (
     <View style={styles.container}>
       {/* Custom Header */}
-      <CustomHeader onMenuPress={handleMenuPress} onNotifPress={handleNotifPress} />
+      <CustomHeader
+        onMenuPress={handleMenuPress}
+        onNotifPress={handleNotifPress}
+      />
 
       {/* Banner */}
       <Banner />
@@ -35,11 +38,31 @@ export default function DashboardScreen({ navigation }: any) {
       {/* Service Menu */}
       <Text style={styles.menuTitle}>Crewcam Service Menu</Text>
       <ScrollView>
-        <MenuItem icon={faClock} title="Attendance Management" />
-        <MenuItem icon={faCalendar} title="Leave Management" />
-        <MenuItem icon={faUsers} title="Meeting & Site Visit" />
-        <MenuItem icon={faMapMarker} title="Employee Live Tracking" />
-        <MenuItem icon={faEye} title="Master Eye" />
+        <MenuItem
+          icon={faClock}
+          title="Attendance Management"
+          onPress={() => navigation.navigate("AttendanceMgmt")} // ✅ Navigates to new screen
+        />
+        <MenuItem
+          icon={faCalendar}
+          title="Leave Management"
+          onPress={() => navigation.navigate("LeaveMgmt")} // (add screen later)
+        />
+        <MenuItem
+          icon={faUsers}
+          title="Meeting & Site Visit"
+          onPress={() => navigation.navigate("MeetingVisit")} // (add screen later)
+        />
+        <MenuItem
+          icon={faMapMarker}
+          title="Employee Live Tracking"
+          onPress={() => navigation.navigate("Tracking")} // (add screen later)
+        />
+        <MenuItem
+          icon={faEye}
+          title="Master Eye"
+          onPress={() => navigation.navigate("MasterEye")} // (add screen later)
+        />
       </ScrollView>
     </View>
   );

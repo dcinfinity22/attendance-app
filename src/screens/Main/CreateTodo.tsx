@@ -17,7 +17,7 @@ import { colors } from "../../theme";
 
 // Navigator type
 type RootStackParamList = {
-  Dashboard: undefined;
+  Notification: undefined;
 };
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
@@ -37,7 +37,7 @@ const CreateTodoScreen = () => {
   };
 
   const handleNotifPress = () => {
-    navigation.navigate("Dashboard");
+    navigation.navigate("Notification");
   };
 
   // iOS + Android date/time handling

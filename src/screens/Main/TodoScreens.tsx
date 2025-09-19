@@ -9,6 +9,7 @@ import CustomHeader from "../../components/CustomHeader";
 // Apne navigator ka type define karo
 type RootStackParamList = {
   Dashboard: undefined;
+  Notification: undefined;
   CreateTodo: undefined;
 };
 
@@ -21,7 +22,7 @@ const TodoScreen = () => {
   };
 
   const handleNotifPress = () => {
-    navigation.navigate("Dashboard"); // Example navigation
+    navigation.navigate("Notification"); // Example navigation
   };
   return (
     <View style={styles.container}>
