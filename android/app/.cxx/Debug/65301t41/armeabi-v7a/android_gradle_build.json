@@ -4,6 +4,7 @@
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\@react-native-community\\datetimepicker\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\@react-native-picker\\picker\\android\\src\\main\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-gesture-handler\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
+    "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-maps\\android\\src\\main\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-reanimated\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-safe-area-context\\android\\src\\main\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-screens\\android\\src\\main\\jni\\CMakeLists.txt",
@@ -46,6 +47,11 @@
       "toolchain": "toolchain",
       "abi": "armeabi-v7a",
       "artifactName": "react_codegen_RNDateTimePickerCGen"
+    },
+    "react_codegen_RNMapsSpecs::@5748abef1962d24942ec": {
+      "toolchain": "toolchain",
+      "abi": "armeabi-v7a",
+      "artifactName": "react_codegen_RNMapsSpecs"
     },
     "react_codegen_RNVectorIconsSpec::@479809fae146501fd34d": {
       "toolchain": "toolchain",

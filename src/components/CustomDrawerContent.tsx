@@ -23,7 +23,7 @@ const CustomDrawerContent = (props: any) => {
   const { logout } = useContext(AuthContext);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       {/* ✅ Drawer Header */}
       <View style={styles.header}>
         <Image source={logo} style={styles.logo} resizeMode="contain" />
@@ -54,7 +54,7 @@ const CustomDrawerContent = (props: any) => {
           <Text style={styles.menuText}>Logout</Text>
         </TouchableOpacity>
       </DrawerContentScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

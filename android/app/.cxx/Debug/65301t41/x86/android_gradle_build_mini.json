@@ -4,6 +4,7 @@
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\@react-native-community\\datetimepicker\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\@react-native-picker\\picker\\android\\src\\main\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-gesture-handler\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
+    "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-maps\\android\\src\\main\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-reanimated\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-safe-area-context\\android\\src\\main\\jni\\CMakeLists.txt",
     "D:\\xampp\\htdocs\\apps\\new\\crewcam\\node_modules\\react-native-screens\\android\\src\\main\\jni\\CMakeLists.txt",
@@ -90,6 +91,11 @@
         "C:\\Users\\dell\\.gradle\\caches\\8.14.3\\transforms\\cba9d40536536f0777207a470c313f6b\\transformed\\react-android-0.81.1-debug\\prefab\\modules\\jsi\\libs\\android.x86\\libjsi.so",
         "C:\\Users\\dell\\.gradle\\caches\\8.14.3\\transforms\\a18451f415b73841e30da63b3d9805af\\transformed\\fbjni-0.7.0\\prefab\\modules\\fbjni\\libs\\android.x86\\libfbjni.so"
       ]
+    },
+    "react_codegen_RNMapsSpecs::@5748abef1962d24942ec": {
+      "artifactName": "react_codegen_RNMapsSpecs",
+      "abi": "x86",
+      "runtimeFiles": []
     },
     "react_codegen_rnworklets::@68f58d84d4754f193387": {
       "artifactName": "react_codegen_rnworklets",

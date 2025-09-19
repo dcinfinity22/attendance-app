@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Image,   // ✅ yahi use karna hai
 } from "react-native";
 import CustomHeader from "../../components/CustomHeader";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
@@ -39,12 +40,32 @@ const DailyAttendanceScreen = () => {
 
       {/* ✅ Page Content */}
       <View style={styles.headingContent}>
-        <Text style={styles.greeting}>Hi, Mohit</Text>
-        <Text style={styles.subTitle}>
-          Please select one of the options in the Daily Attendance menu below.
-        </Text>
+        <View style={styles.headerRow}>
+         
+
+          {/* Greeting + Subtitle */}
+          <View style={{ flex: 1, marginLeft: 10 }}>
+            <Text style={styles.greeting}>Hi, Mohit</Text>
+            <Text style={styles.subTitle}>
+              Please select one of the options in the Daily Attendance menu below.
+            </Text>
+          </View>
+          
         </View>
-     <View style={styles.content}>
+      </View>
+
+      <View style={styles.content}>
+         {/* Avatar + Calendar Row */}
+          <View style={styles.avatarRow}>
+            <Image
+              source={{ uri: "https://i.pravatar.cc/100" }}
+              style={styles.avatar}
+            />
+            <Image
+              source={require("../../assets/calendar.png")}
+              style={styles.calendar}
+            />
+          </View>
         <Text style={styles.welcome}>Good Morning Mohit !!</Text>
 
         {/* Buttons */}
@@ -102,8 +123,33 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.bg,
   },
-  headingContent:{
+  headingContent: {
     paddingHorizontal: 20,
+    marginBottom: 10,
+  },
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+   avatarRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 15,
+    gap: 10,
+  },
+   avatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    borderWidth: 2,
+    borderColor: "#fff",
+  },
+  calendar: {
+    width: 40,
+    height: 40,
+    marginLeft: 10,
   },
   content: {
     flex: 1,
@@ -114,12 +160,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     color: "#fff",
-    marginTop: 10,
   },
   subTitle: {
     fontSize: 14,
     color: "#e6e6e6",
-    marginBottom: 20,
+    marginTop: 2,
   },
   welcome: {
     color: "#fff",
@@ -139,6 +184,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: "90%",
     marginBottom: 10,
+    gap: 10,
   },
   smallBtn: {
     flex: 1,
@@ -146,7 +192,6 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 8,
     alignItems: "center",
-    marginHorizontal: 0,
   },
   btnText: {
     color: "#fff",
