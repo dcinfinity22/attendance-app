@@ -26,17 +26,55 @@ import HolidayListScreen from "../screens/Main/HolidayListScreen";
 import { colors } from "../theme";
 // Drawer
 import CustomDrawerContent from "../components/CustomDrawerContent";
+import AttendanceScreen from "../screens/Main/AttendanceScreen";
+import LeaveMgmt from "../screens/Main/LeaveMgmt";
+import MeetingVisit from "../screens/Main/MeetingVisit";
+import MasterEye from "../screens/Main/MasterEye";
+import EmpTrackingScreen from "../screens/Main/EmpTrackingScreen";
+import NotificationsHello from "../screens/Main/NotificationsHello";
+import DailyAttendanceScreen from "../screens/Main/DailyAttendance";
+import AttendanceStatus from "../screens/Main/AttendanceStatus";
+import LeaveRequest from "../screens/Main/LeaveRequest";
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 const ToDoStack = createStackNavigator();
+const HomeStack = createStackNavigator();
+const AttendanceStack = createStackNavigator();
 // ✅ ToDo Stack (for ToDo + CreateTodo)
 function ToDoStackNavigator() {
   return (
     <ToDoStack.Navigator screenOptions={{ headerShown: false }}>
       <ToDoStack.Screen name="ToDoMain" component={ToDoScreen} />
+      <ToDoStack.Screen name="Notification" component={NotificationsHello} />
       <ToDoStack.Screen name="CreateTodo" component={CreateTodo} />
     </ToDoStack.Navigator>
+  );
+}
+function AttendanceStackNavigator() {
+  return (
+    <AttendanceStack.Navigator screenOptions={{ headerShown: false }}>
+      <AttendanceStack.Screen name="AttendanceMgmtMain" component={AttendanceScreen} /> 
+      <AttendanceStack.Screen name="DailyAttendance" component={DailyAttendanceScreen} />
+      <AttendanceStack.Screen name="Notification" component={NotificationsHello} />
+      <AttendanceStack.Screen name="AttendanceStatus" component={AttendanceStatus} />
+      <AttendanceStack.Screen name="LeaveRequest" component={LeaveRequest} />
+    </AttendanceStack.Navigator>
+  );
+}
+
+
+function HomeStackNavigator() {
+  return (
+    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+      <HomeStack.Screen name="DashboardMain" component={DashboardScreen} />
+      <HomeStack.Screen name="Notification" component={NotificationsHello} />
+      <HomeStack.Screen name="AttendanceMgmt" component={AttendanceStackNavigator} />      
+      <HomeStack.Screen name="LeaveMgmt" component={LeaveMgmt} />
+      <HomeStack.Screen name="MeetingVisit" component={MeetingVisit} />
+      <HomeStack.Screen name="Tracking" component={EmpTrackingScreen} />
+      <HomeStack.Screen name="MasterEye" component={MasterEye} />
+    </HomeStack.Navigator>
   );
 }
 function BottomTabs() {
@@ -52,20 +90,20 @@ function BottomTabs() {
 
           if (route.name === "Dashboard") icon = faHome;
           else if (route.name === "ToDo") icon = faCalendarCheck;
-          else if (route.name === "CUpdates") icon = faSync;
-          else if (route.name === "HRSupport") icon = faQuestionCircle;
+          else if (route.name === "C.Updates") icon = faSync;
+          else if (route.name === "HR Support") icon = faQuestionCircle;
           else if (route.name === "Profile") icon = faUser;
           else if (route.name === "History") icon = faHistory;
 
-          return <FontAwesomeIcon icon={icon} size={size ?? 20} color={color} />;
+          return <FontAwesomeIcon icon={icon} size={16} color={color} />;
         },
       })}
     >
       {/* ✅ Now Dashboard & ToDo are separate */}
-      <Tab.Screen name="Dashboard" component={DashboardScreen} />
+      <Tab.Screen name="Home" component={HomeStackNavigator} />
       <Tab.Screen name="ToDo" component={ToDoStackNavigator} />
-      <Tab.Screen name="CUpdates" component={UpdatesScreen} />
-      <Tab.Screen name="HRSupport" component={HrSupportScreen} />
+      <Tab.Screen name="C.Updates" component={UpdatesScreen} />
+      <Tab.Screen name="HR Support" component={HrSupportScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
       <Tab.Screen name="History" component={HistoryScreen} />
     </Tab.Navigator>

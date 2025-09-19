@@ -1,6 +1,6 @@
 export const colors = {
   bg: '#1e6178ff',         // deep teal/blue like your shots
-  panel: '#0f5775',
+  panel: '#144d73',
   text: '#ffffff',
   muted: '#cbd5e1',
   card: '#13668a',

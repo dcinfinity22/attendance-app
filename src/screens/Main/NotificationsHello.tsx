@@ -1,8 +1,8 @@
 import React from 'react'
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 const NotificationsHello = () => {
   return (
-    <View>NotificationsHello</View>
+    <View><Text>NotificationsHello</Text></View>
   )
 }
 
