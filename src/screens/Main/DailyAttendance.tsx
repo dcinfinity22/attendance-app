@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import CustomHeader from "../../components/CustomHeader";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 import { colors } from "../../theme";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -21,9 +22,12 @@ type RootStackParamList = {
   UrgentLeave: undefined;
   Notification: undefined;
 };
-
+type DailyAttendanceScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "CheckIn"
+>;
 const DailyAttendanceScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<DailyAttendanceScreenNavigationProp>();
 
   const handleMenuPress = () => {
     navigation.dispatch(DrawerActions.openDrawer());
@@ -71,17 +75,17 @@ const DailyAttendanceScreen = () => {
         {/* Buttons */}
         <TouchableOpacity
           style={styles.mainBtn}
-          onPress={() => navigation.navigate("CheckIn" as never)}
+          onPress={() => navigation.navigate("CheckIn")}
         >
           <Text style={styles.btnText}>CHECK IN</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.mainBtn}
           onPress={() => navigation.navigate("CheckOut" as never)}
         >
           <Text style={styles.btnText}>CHECK OUT</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <View style={styles.row}>
           <TouchableOpacity
@@ -172,7 +176,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   mainBtn: {
-    backgroundColor: "#1E3A5F",
+    backgroundColor: colors.panel,
     width: "90%",
     padding: 15,
     borderRadius: 8,
@@ -188,7 +192,7 @@ const styles = StyleSheet.create({
   },
   smallBtn: {
     flex: 1,
-    backgroundColor: "#1E3A5F",
+    backgroundColor: colors.panel,
     padding: 15,
     borderRadius: 8,
     alignItems: "center",

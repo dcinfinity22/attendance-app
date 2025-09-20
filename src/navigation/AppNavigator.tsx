@@ -62,10 +62,17 @@ function ToDoStackNavigator() {
 function DailyAttendanceStackNavigator() {
   return (
     <DailyAttendanceStack.Navigator screenOptions={{ headerShown: false }}>
+      <DailyAttendanceStack.Screen
+        name="DailyAttendanceMain"
+        component={DailyAttendanceScreen}
+      />
       <DailyAttendanceStack.Screen name="CheckIn" component={CheckInScreen} />
-      <DailyAttendanceStack.Screen name="Notification" component={NotificationsHello} />
-      <DailyAttendanceStack.Screen name="CheckOut" component={CreateTodo} />
-      <DailyAttendanceStack.Screen name="OfficeOut" component={CreateTodo} />
+      <DailyAttendanceStack.Screen
+        name="Notification"
+        component={NotificationsHello}
+      />
+      {/* <DailyAttendanceStack.Screen name="CheckOut" component={CreateTodo} />
+      <DailyAttendanceStack.Screen name="OfficeOut" component={CreateTodo} /> */}
     </DailyAttendanceStack.Navigator>
   );
 }
@@ -74,10 +81,25 @@ function DailyAttendanceStackNavigator() {
 function AttendanceStackNavigator() {
   return (
     <AttendanceStack.Navigator screenOptions={{ headerShown: false }}>
-      <AttendanceStack.Screen name="AttendanceMgmtMain" component={AttendanceScreen} /> 
-      <AttendanceStack.Screen name="DailyAttendance" component={DailyAttendanceScreen} />
-      <AttendanceStack.Screen name="Notification" component={NotificationsHello} />
-      <AttendanceStack.Screen name="AttendanceStatus" component={AttendanceStatus} />
+      <AttendanceStack.Screen
+        name="AttendanceMgmtMain"
+        component={AttendanceScreen}
+      />
+
+      {/* 🔥 Renamed to avoid duplicate name */}
+      <AttendanceStack.Screen
+        name="DailyAttendance"
+        component={DailyAttendanceStackNavigator}
+      />
+
+      <AttendanceStack.Screen
+        name="Notification"
+        component={NotificationsHello}
+      />
+      <AttendanceStack.Screen
+        name="AttendanceStatus"
+        component={AttendanceStatus}
+      />
       <AttendanceStack.Screen name="LeaveRequest" component={LeaveRequest} />
     </AttendanceStack.Navigator>
   );
@@ -89,7 +111,7 @@ function HomeStackNavigator() {
     <HomeStack.Navigator screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="DashboardMain" component={DashboardScreen} />
       <HomeStack.Screen name="Notification" component={NotificationsHello} />
-      <HomeStack.Screen name="AttendanceMgmt" component={AttendanceStackNavigator} />      
+      <HomeStack.Screen name="AttendanceMgmt" component={AttendanceStackNavigator} />
       <HomeStack.Screen name="LeaveMgmt" component={LeaveMgmt} />
       <HomeStack.Screen name="MeetingVisit" component={MeetingVisit} />
       <HomeStack.Screen name="Tracking" component={EmpTrackingScreen} />
@@ -109,7 +131,7 @@ function BottomTabs() {
           headerShown: false,
           tabBarActiveTintColor: "#fff",
           tabBarInactiveTintColor: "#ddd",
-          tabBarStyle: { 
+          tabBarStyle: {
             backgroundColor: colors.panel,
             height: 55 + insets.bottom, // ✅ tabs height includes safe area
           },
@@ -162,8 +184,16 @@ export default function AppNavigator() {
         component={BottomTabs}
         options={{ headerShown: false }}
       />
-      <Drawer.Screen name="About" component={AboutScreen} options={{ headerShown: false }} />
-      <Drawer.Screen name="HolidayList" component={HolidayListScreen} options={{ headerShown: false }} />
+      <Drawer.Screen
+        name="About"
+        component={AboutScreen}
+        options={{ headerShown: false }}
+      />
+      <Drawer.Screen
+        name="HolidayList"
+        component={HolidayListScreen}
+        options={{ headerShown: false }}
+      />
     </Drawer.Navigator>
   );
 }
