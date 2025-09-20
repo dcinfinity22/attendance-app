@@ -11,6 +11,7 @@ import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { colors } from "../../theme";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { getGreeting } from "../../utils/getGreeting";
 
 type RootStackParamList = {
   DailyAttendance: undefined;
@@ -70,7 +71,7 @@ const DailyAttendanceScreen = () => {
               style={styles.calendar}
             />
           </View>
-        <Text style={styles.welcome}>Good Morning Mohit !!</Text>
+        <Text style={styles.welcome}>{getGreeting()} Mohit !!</Text>
 
         {/* Buttons */}
         <TouchableOpacity

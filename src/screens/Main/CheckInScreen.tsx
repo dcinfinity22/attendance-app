@@ -2,27 +2,37 @@ import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  Dimensions,
   PermissionsAndroid,
   Platform,
+  Image,
 } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 import Geolocation from "react-native-geolocation-service";
 import { getDistance } from "geolib";
-import { colors } from "../../theme";
-const jobLocation = {
-  latitude: 28.6139, // Example: Delhi
-  longitude: 77.2090,
-};
+import { getGreeting } from "../../utils/getGreeting"; // 👈 tumhara greeting util
 
+const { width, height } = Dimensions.get("window");
+
+// 📍 Office Location
+const officeLocation = {
+  latitude: 28.671246, // change to your office coordinates
+  longitude: 77.391029,
+};
 const ALLOWED_DISTANCE = 200; // meters
 
 const CheckInScreen = () => {
+  const [time, setTime] = useState(new Date());
   const [location, setLocation] = useState<any>(null);
   const [isInside, setIsInside] = useState(false);
 
   useEffect(() => {
     requestLocationPermission();
+    const interval = setInterval(() => setTime(new Date()), 60000);
+    return () => clearInterval(interval);
   }, []);
 
   const requestLocationPermission = async () => {
@@ -32,8 +42,6 @@ const CheckInScreen = () => {
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         getCurrentLocation();
-      } else {
-        console.log("❌ Location permission denied");
       }
     } else {
       getCurrentLocation();
@@ -46,83 +54,135 @@ const CheckInScreen = () => {
         const { latitude, longitude } = pos.coords;
         setLocation({ latitude, longitude });
 
-        // check distance from job location
-        const distance = getDistance(
-          { latitude, longitude },
-          jobLocation
-        );
-
+        const distance = getDistance({ latitude, longitude }, officeLocation);
         setIsInside(distance <= ALLOWED_DISTANCE);
       },
-      (error) => {
-        console.log("❌ Error getting location: ", error);
-      },
+      (error) => console.log("❌ Error: ", error),
       { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
     );
   };
 
+  const formattedTime = time.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const formattedDate = time.toLocaleDateString([], {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Check In Location</Text>
+    <ScrollView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.logo}>CREWCAM</Text>
+        <Text style={styles.title}>Check In time & location</Text>
+      </View>
 
-      {/* ✅ Live User Location */}
-      {location ? (
-        <Text style={styles.locationText}>
-          📍 Your Location: {"\n"}
-          Lat: {location.latitude} {"\n"}
-          Lng: {location.longitude}
+      {/* Banner */}
+      <View style={styles.banner}>
+        {/* <Image
+          source={require("../assets/avatar-clock.png")} // 👈 apni image path daalna
+          style={styles.bannerImage}
+          resizeMode="contain"
+        /> */}
+        <Text style={styles.greeting}>{getGreeting()} Mohit !!</Text>
+      </View>
+
+      {/* Date & Time */}
+      <View style={styles.card}>
+        <Text style={styles.dateTime}>
+          {formattedDate}, {formattedTime}
         </Text>
-      ) : (
-        <Text style={styles.locationText}>Fetching location...</Text>
-      )}
 
-      <Text
-        style={{
-          color: isInside ? "green" : "red",
-          marginBottom: 20,
-          marginTop: 10,
-          fontWeight: "bold",
-        }}
-      >
-        {isInside
-          ? "✅ You are inside Job Location"
-          : "❌ You are outside Job Location"}
-      </Text>
+        {/* Location */}
+        {location ? (
+          <Text style={styles.location}>
+            📍 Lat: {location.latitude.toFixed(5)}, Lng:{" "}
+            {location.longitude.toFixed(5)}
+          </Text>
+        ) : (
+          <Text style={styles.location}>Fetching location...</Text>
+        )}
 
-      {/* ✅ Button only if inside */}
-      {isInside && (
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>CHECK IN</Text>
+        {/* ✅ Check-In Button only if inside */}
+        {isInside && (
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>CHECK IN</Text>
+          </TouchableOpacity>
+        )}
+
+        {/* Refresh Button */}
+        <TouchableOpacity
+          onPress={getCurrentLocation}
+          style={[styles.button, { backgroundColor: "#555" }]}
+        >
+          <Text style={styles.buttonText}>Refresh Location</Text>
         </TouchableOpacity>
-      )}
+      </View>
 
-      <TouchableOpacity
-        onPress={getCurrentLocation}
-        style={[styles.btn, { backgroundColor: "#555", marginTop: 15 }]}
-      >
-        <Text style={styles.btnText}>Refresh Location</Text>
-      </TouchableOpacity>
-    </View>
+      {/* Google Map */}
+      {location && (
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: location.latitude,
+            longitude: location.longitude,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
+          }}
+        >
+          <Marker coordinate={location} title="Your Location" pinColor="blue" />
+          <Marker coordinate={officeLocation} title="Office Location" pinColor="red" />
+        </MapView>
+      )}
+    </ScrollView>
   );
 };
 
 export default CheckInScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
+  container: { flex: 1, backgroundColor: "#f2f2f2" },
+  header: {
+    backgroundColor: "#1E3A5F",
+    paddingVertical: 15,
     alignItems: "center",
-    backgroundColor: "#f4f6fc",
   },
-  title: { fontSize: 20, fontWeight: "bold", marginBottom: 15 },
-  locationText: { fontSize: 14, marginBottom: 10, textAlign: "center" },
-  btn: {
-    backgroundColor:colors.panel,
-    padding: 15,
-    borderRadius: 8,
+  logo: { color: "#fff", fontSize: 22, fontWeight: "bold" },
+  title: { color: "#fff", fontSize: 16, marginTop: 5 },
+  banner: {
+    backgroundColor: "#005f99",
+    padding: 20,
     alignItems: "center",
-    width: "70%",
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
-  btnText: { color: "#fff", fontWeight: "bold", fontSize: 16 },
+  bannerImage: { width: 80, height: 80, marginBottom: 10 },
+  greeting: { color: "#FFD700", fontSize: 18, fontWeight: "bold" },
+  card: {
+    backgroundColor: "#fff",
+    margin: 15,
+    borderRadius: 10,
+    padding: 20,
+    alignItems: "center",
+    elevation: 4,
+  },
+  dateTime: { fontSize: 16, fontWeight: "bold", marginBottom: 10 },
+  location: { fontSize: 14, marginBottom: 15, textAlign: "center" },
+  button: {
+    backgroundColor: "#003366",
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+    marginTop: 10,
+  },
+  buttonText: { color: "#fff", fontSize: 16, fontWeight: "bold" },
+  map: {
+    width: width - 20,
+    height: height * 0.4,
+    margin: 10,
+    borderRadius: 10,
+  },
 });

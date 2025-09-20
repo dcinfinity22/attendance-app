@@ -12,6 +12,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { colors } from "../../theme";
 import CustomHeader from "../../components/CustomHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { getGreeting } from "../../utils/getGreeting";
 
 type RootStackParamList = {
   DailyAttendance: undefined;
@@ -58,7 +59,7 @@ const AttendanceMgmtScreen = () => {
           <Text style={styles.emoji}>👨‍💼⏰</Text>
         </View>
 
-        <Text style={styles.goodEvening}>Good Evening Mohit !!</Text>
+        <Text style={styles.goodEvening}>{getGreeting()} Mohit !!</Text>
 
         {/* Attendance Options */}
         <OptionButton
